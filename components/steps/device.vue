@@ -2,21 +2,37 @@
   <div class="device">
     <h1>Device</h1>
     <form>
-      <button @click="submitStep" :value="true">
-        True
-      </button>
-      <button @click="submitStep" :value="false">
-        False
-      </button>
+      <fm-radio :options="options"/>
     </form>
   </div>
 </template>
 
 <script>
+import FmRadio from '~/components/form/fm-radio'
+
 export default {
-  name: 'device',
+  name: "device",
+  components: {
+    FmRadio,
+  },
+  data () {
+    return {
+      options: [
+        {
+          id: 'non',
+          label: 'Non',
+          value: false
+        },
+        {
+          id: 'oui',
+          label: 'Oui',
+          value: true
+        }
+      ]
+    }
+  },
   methods: {
-    submitStep(payload) {
+    submitStep (payload) {
       this.$emit('nextStep', payload.target.value)
     }
   }
