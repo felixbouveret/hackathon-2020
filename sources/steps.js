@@ -5,6 +5,8 @@ import socialMedia from '~/components/steps/social-media'
 const steps = {
   device: {
     component: Device,
+    currentStep: 0,
+    maxStep: 7,
     nextStep: data => {
       if (data) {
         return 'socialMedia'
@@ -15,9 +17,13 @@ const steps = {
   },
   noDevice: {
     component: noDevice,
+    currentStep: 1,
+    maxStep: 1,
     nextStep: () => {}
   },
   socialMedia: {
+    currentStep: 1,
+    maxStep: 7,
     component: socialMedia,
     nextStep: data => {}
   }

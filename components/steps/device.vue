@@ -14,17 +14,13 @@
 
 <script>
 export default {
-  name: "device",
+  name: 'device',
   methods: {
-    submitStep (payload) {
-      console.log(payload);
-
+    submitStep(payload) {
       this.$emit('nextStep', payload.target.value)
     }
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
