@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import stepsScript from '~/sources/steps'
+import stepsScript from '~/services/steps'
 import progressBar from '../components/progressBar'
 import Steps from '~/components/steps'
 

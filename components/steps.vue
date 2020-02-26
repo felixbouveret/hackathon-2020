@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import stepsScript from '~/sources/steps'
+import stepsScript from '~/services/steps'
 import fmButton from '~/components/form/fm-button'
 import { mapActions } from 'vuex'
 
