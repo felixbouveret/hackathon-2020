@@ -13,12 +13,12 @@ import Steps from '~/components/steps'
 export default {
   name: 'stepsPage',
   components: {
-    Steps
+    Steps,
     progressBar
   },
   data() {
     return {
-      stepsManager: stepsScript(),
+      stepsManager: stepsScript()
     }
   },
   computed: {
@@ -28,7 +28,7 @@ export default {
     maxStepNumber() {
       return this.stepsManager.getStep().maxStep
     }
-  },
+  }
 }
 </script>
 
