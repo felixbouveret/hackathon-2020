@@ -1,12 +1,20 @@
 <template>
-  <component :is="currentStep" @nextStep="goToNextStep" />
+  <div>
+    <progress-bar :max="maxStepNumber" :current="currentStepNumber" />
+    <component :is="currentStep" @nextStep="goToNextStep" />
+  </div>
 </template>
 
 <script>
+import progressBar from '../components/progressBar'
 import stepsScript from '~/sources/steps'
 import { mapActions } from 'vuex'
 
 export default {
+  name: 'stepsPage',
+  components: {
+    progressBar
+  },
   data() {
     return {
       stepsManager: stepsScript(),
@@ -16,6 +24,12 @@ export default {
   computed: {
     currentStep() {
       return this.stepsManager.getStep().component
+    },
+    currentStepNumber() {
+      return this.stepsManager.getStep().currentStep
+    },
+    maxStepNumber() {
+      return this.stepsManager.getStep().maxStep
     }
   },
   methods: {
