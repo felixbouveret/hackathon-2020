@@ -1,12 +1,19 @@
 <template>
-  <component :is="currentStep" @nextStep="goToNextStep" />
+  <div class="steps-wrapper">
+    <component :is="currentStep" @nextStep="goToNextStep" />
+    <!-- <fm-button text="Valider" @click="submitStep" /> -->
+  </div>
 </template>
 
 <script>
 import stepsScript from '~/sources/steps'
+import fmButton from '~/components/form/fm-button'
 import { mapActions } from 'vuex'
 
 export default {
+  components: {
+    fmButton
+  },
   data() {
     return {
       stepsManager: stepsScript(),
