@@ -1,18 +1,16 @@
 <template>
-  <component
-    :is="currentStep"
-    @nextStep="goToNextStep"
-  />
+  <component :is="currentStep" @nextStep="goToNextStep" />
 </template>
 
 <script>
 import stepsScript from '~/sources/steps'
+import { mapActions } from 'vuex'
 
 export default {
   data() {
     return {
       stepsManager: stepsScript(),
-      currentStepValue: {},
+      currentStepValue: {}
     }
   },
   computed: {
@@ -21,12 +19,15 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      updateState: 'updateState'
+    }),
     goToNextStep(payload) {
-      this.stepsManager.goToNextStep(payload);
+      this.updateState(payload)
+      this.stepsManager.goToNextStep(payload)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

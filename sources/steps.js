@@ -1,13 +1,12 @@
-import Device from "~/components/steps/device"
-import noDevice from "~/components/steps/noDevice"
-import socialMedia from "~/components/steps/social-media"
-
+import Device from '~/components/steps/device'
+import noDevice from '~/components/steps/noDevice'
+import socialMedia from '~/components/steps/social-media'
 
 const steps = {
   device: {
     component: Device,
-    nextStep: (data) => {
-      if(data) {
+    nextStep: data => {
+      if (data) {
         return 'socialMedia'
       } else {
         return 'noDevice'
@@ -20,8 +19,8 @@ const steps = {
   },
   socialMedia: {
     component: socialMedia,
-    nextStep: (data) => {}
-  },
+    nextStep: data => {}
+  }
 }
 
 export default function() {
@@ -34,7 +33,7 @@ export default function() {
     getStep() {
       return this.steps[this.currentStep]
     },
-    goToNextStep (data) {
+    goToNextStep(data) {
       this.currentStep = this.steps[this.currentStep].nextStep(data)
     }
   }
