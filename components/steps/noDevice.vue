@@ -6,10 +6,8 @@
 
 <script>
 export default {
-  name: "noDevice"
+  name: 'noDevice'
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
