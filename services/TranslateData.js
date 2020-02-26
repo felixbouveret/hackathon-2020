@@ -24,6 +24,30 @@ const CONSO_MOY = {
      JV              :   2000
 }
 
+// Tableau des vulgarisations
+// -----------------------------
+const IMPACT_EX = [
+    {
+        label : "trajet Paris Bordeaux", 
+        value : 186
+    },
+    {
+        label : "trajet Paris Marseille",
+        value : 360
+    },
+    {
+        label : "trajet Paris Dunkerque",
+        value : 60
+    }
+];
+
+
+
+// Ratio de conversion mo => g
+// -----------------------------
+const RATIO_G = 0.669;
+
+
 
 // Déclaration de la classe de traduction 
 // ---------------------------------------
@@ -44,14 +68,29 @@ export default class TranslateData{
 
         let newClass = new this(dataObject);
         
-        return newClass.totalConso().percentParis();  
+        return newClass.totalConso();  
 
     }
 
+    // Methodes d'affichage
+    // ----------------------------------------------------
+    
     percentParis = () => {
-        let percent = (this.total * 0.669) * 100 / 9000;
+        let percent = (this.total * RATIO_G) * 100 / 9000;
         return percent;
     }
+
+    randomSentence = () => {
+        let index = Math.floor(Math.random() * IMPACT_EX.length);
+        let choosenExemple = IMPACT_EX[index];
+        let ratioExemple = Math.floor((this.gTotalByYear / 1000) / choosenExemple.value);
+        return "correspond à "+ ratioExemple + " " + choosenExemple.label;
+    }
+
+    // PARTIE LOGIQUE
+    // -----------------------------------------------------------------
+
+
 
     // Calcul du total des consomation , retourne la conso total sur 1J
     // -----------------------------------------------------------------
@@ -61,7 +100,14 @@ export default class TranslateData{
         total += this.data.jeuxVideo ? CONSO_MOY.JV : 0;
 
         total += (this.consoFILMCalc() + this.consoMUSICCalc() + this.consoNAVCalc() + this.consoRSCalc());
+
+        //Definition du total sur 1 jour et sur 1 ans
         this.total = total;
+        this.gTotal = total * RATIO_G;
+
+        this.totalByYear = total * 365;
+        this.gTotalByYear = (total * RATIO_G) * 365;
+
         return this;
     }
 

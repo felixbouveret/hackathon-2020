@@ -2,18 +2,17 @@ import TranslateData from './TranslateData.js';
 var testData = {
 
     reseauSociaux : {
-        facebook : 0.2,
-        instagram : 0.5,
+        facebook : 4
     },
 
     music : {
-        spotify : 3
+
     },
 
     mail : false,
 
     films : {
-        netflix : 0.5
+        youtube : 0.15
     },
 
     navigation : {
@@ -23,6 +22,6 @@ var testData = {
 
 }
 console.log(
-    TranslateData.do(testData)
+    TranslateData.do(testData).randomSentence()
     );
 
