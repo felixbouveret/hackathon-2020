@@ -50,7 +50,7 @@ export default {
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {
         name: 'games',
-        data: this.finalData
+        data: value
       })
     }
   }

@@ -1,6 +1,11 @@
 <template>
   <div class="social-media">
     <h1>Tu écoutes de la musique sur quelle plateforme ?</h1>
+    <button
+      @click="$emit('go-back', { name: 'socialMedia', data: { skiped: true } })"
+    >
+      Skip
+    </button>
     <checkbox :options="options" @emitValue="emitValue" />
     <timeRangeModal
       v-if="firstPartData"
@@ -70,7 +75,7 @@ export default {
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {
         name: 'music',
-        data: this.finalData
+        data: value
       })
     }
   }
