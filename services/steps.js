@@ -1,5 +1,5 @@
 import Device from '~/components/steps/device'
-import noDevice from '~/components/steps/noDevice'
+import noDevice from '~/components/steps/no-device'
 import socialMedia from '~/components/steps/social-media'
 
 const steps = {
@@ -8,8 +8,6 @@ const steps = {
     currentStep: 0,
     maxStep: 7,
     nextStep: data => {
-      console.log(data);
-
       if (data.data === 'yes') {
         return 'socialMedia'
       } else {
@@ -19,6 +17,7 @@ const steps = {
   },
   noDevice: {
     component: noDevice,
+    externalLink: true,
     currentStep: 1,
     maxStep: 1,
     nextStep: () => {
@@ -46,7 +45,7 @@ export default function() {
       return this.steps[this.currentStep]
     },
     goToNextStep(data) {
-      if (this.currentStep === 'noDevice') {
+      if (this.steps[this.currentStep].externalLink) {
         this.steps[this.currentStep].nextStep()
       } else {
         this.currentStep = this.steps[this.currentStep].nextStep(data)

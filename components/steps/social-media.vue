@@ -1,6 +1,7 @@
 <template>
   <div class="social-media">
-    <h1>Social Media</h1>
+    <h1 class="content">Social Media</h1>
+    <button @click="$emit('go-back', { name: 'socialMedia', data: {'skiped' : true} })">Skip</button>
     <checkbox :options="options" @emitValue="emitValue" />
     <timeRangeModal
       v-if="firstPartData"
