@@ -1,24 +1,21 @@
 <template>
   <div class="social-media">
-    <h1 @click="nextStep">Social Media</h1>
+    <h1>Social Media</h1>
+    <timeRangeModal @emitValue="emitValue" />
   </div>
 </template>
 
 <script>
+import timeRangeModal from '../timeRangeModal'
+
 export default {
   name: 'device',
-  data() {
-    return {
-      music: {
-        spotify: 4,
-        applemusic: 6
-      }
-    }
+  components: {
+    timeRangeModal
   },
   methods: {
-    nextStep() {
-      console.log(this.music)
-      this.$emit('nextStep', { name: 'music', data: this.music })
+    emitValue(value) {
+      this.$emit('emitValue', value)
     }
   }
 }

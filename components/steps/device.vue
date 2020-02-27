@@ -2,7 +2,7 @@
   <div class="device">
     <h1>Device</h1>
     <form>
-      <fm-radio :options="options"/>
+      <fm-radio :options="options" @emitValue="emitValue" />
     </form>
   </div>
 </template>
@@ -11,11 +11,11 @@
 import FmRadio from '~/components/form/fm-radio'
 
 export default {
-  name: "device",
+  name: 'device',
   components: {
-    FmRadio,
+    FmRadio
   },
-  data () {
+  data() {
     return {
       options: [
         {
@@ -32,8 +32,8 @@ export default {
     }
   },
   methods: {
-    submitStep (payload) {
-      this.$emit('nextStep', payload.target.value)
+    emitValue(payload) {
+      this.$emit('emitValue', payload)
     }
   }
 }
