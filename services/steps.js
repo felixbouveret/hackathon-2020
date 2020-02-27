@@ -64,9 +64,10 @@ const steps = {
   },
   games: {
     currentStep: 7,
+    externalLink: true,
     component: games,
     nextStep: data => {
-      return undefined
+      $nuxt._router.push('/report')
     }
   }
 }
