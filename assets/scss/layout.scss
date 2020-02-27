@@ -9,3 +9,15 @@ body {
   text-align: center;
   margin-bottom: 3.25em;
 }
+
+
+.fadeIn-enter-active {
+  transition: all .3s .3s ease;
+}
+.fadeIn-leave-active {
+  transition: all .3s ease;
+}
+.fadeIn-enter, .fadeIn-leave-to {
+  transform: translateY(10px);
+  opacity: 0;
+}
