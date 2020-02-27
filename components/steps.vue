@@ -1,7 +1,7 @@
 <template>
   <div class="steps-wrapper">
     <component :is="currentStep" @emitValue="updateCurrentValue" />
-    <button text="Continuer" @click="goToNextStep">Continuer</button>
+    <fm-button :text="stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'" @submitStep="goToNextStep"/>
   </div>
 </template>
 
@@ -17,7 +17,6 @@ export default {
   data() {
     return {
       stepsManager: stepsScript(),
-      currentStepValue: {},
       currentValue: null
     }
   },
@@ -33,8 +32,10 @@ export default {
     updateCurrentValue(value) {
       this.currentValue = value
     },
-    goToNextStep(payload) {
-      this.updateState(this.currentValue)
+    goToNextStep() {
+      if (this.currentValue) {
+        this.updateState(this.currentValue)
+      }
       this.stepsManager.goToNextStep(this.currentValue)
     }
   }
