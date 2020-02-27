@@ -1,3 +1,5 @@
+import vulgTrain from './json/vulgarisation.js';
+
 // Constante de consomation selon les sites visités
 // ------------------------------------------------
 
@@ -21,27 +23,16 @@ const CONSO_MOY = {
      MAIL            :   1000, 
      GOOGLEMAP       :   1080, 
      WAZE            :   0.69, 
-     JV              :   2000
+     JEUXVIDEO       :   2000
 }
 
 // Tableau des vulgarisations
 // -----------------------------
-const IMPACT_EX = [
-    {
-        label : "trajet Paris Bordeaux", 
-        value : 186
-    },
-    {
-        label : "trajet Paris Marseille",
-        value : 360
-    },
-    {
-        label : "trajet Paris Dunkerque",
-        value : 60
-    }
-];
 
-
+const IMPACT_EX_TRAIN = vulgTrain.array;
+const IMPACT_EX_VOITURE = 162;
+const IMPACT_EX_AVION = 765300;
+const IMPACT_EX_ARBRE = 137;
 
 // Ratio de conversion mo => g
 // -----------------------------
@@ -52,7 +43,7 @@ const RATIO_G = 0.669;
 // Déclaration de la classe de traduction 
 // ---------------------------------------
 
-export default class TranslateData{
+export default class TranslateData {
     constructor(dataObject) {
 
         // dataObject => @object 
@@ -74,17 +65,73 @@ export default class TranslateData{
 
     // Methodes d'affichage
     // ----------------------------------------------------
-    
+
     percentParis = () => {
         let percent = (this.total * RATIO_G) * 100 / 9000;
         return percent;
     }
 
-    randomSentence = () => {
-        let index = Math.floor(Math.random() * IMPACT_EX.length);
-        let choosenExemple = IMPACT_EX[index];
-        let ratioExemple = Math.floor((this.gTotalByYear / 1000) / choosenExemple.value);
+    randomSentenceTrain = () => {
+        let index = Math.floor(Math.random() * IMPACT_EX_TRAIN.length);
+        let choosenExemple = IMPACT_EX_TRAIN[index];
+        let ratioExemple = Math.round((this.gTotalByYear / 1000) / choosenExemple.value);
         return "correspond à "+ ratioExemple + " " + choosenExemple.label;
+    }
+
+    randomSentenceAvion = () => {
+        let nbTrajet = Math.round(this.gTotalByYear / IMPACT_EX_AVION);
+        return "correspond à "+ nbTrajet +" trajet Paris / Tokyo";
+    }
+
+    randomSentenceArbre = () => {
+        let nbJour = Math.round(this.gTotalByYear / IMPACT_EX_ARBRE);
+        let nbAnnee = Math.round(nbJour/365);
+        return "mettra " + nbJour + " jours à absorber le CO2 (soit " + nbAnnee + " ans)";
+    }
+
+    randomSentenceVoiture = () => {
+        let nbKm = Math.round(this.gTotalByYear / IMPACT_EX_VOITURE);
+        return "correspond à " + nbKm + " km en voiture";
+    }
+
+    sortedConso = () => {
+        let arraySort = [];
+        for(let key in this.data) {
+
+            //Si on entre dans les booléen on prend juste la valeur
+            if(key == "mail" || key == "jeuxVideo") {
+
+                if(this.data[key]) {
+
+                    arraySort.push({
+                        name : key, 
+                        octet : CONSO_MOY[key.toUpperCase()], 
+                        time : 1
+                    });   
+
+                }
+                
+            // Sinon on parcour les différent sous objet
+            } else {
+
+                    for(let secondKey in this.data[key]) {
+                        
+                        arraySort.push({
+                            name : secondKey, 
+                            octet : CONSO_MOY[secondKey.toUpperCase()]*this.data[key][secondKey], 
+                            time : this.data[key][secondKey]
+                        });
+        
+                    }    
+            }      
+        }
+
+        // On tri le tableau
+        let arraySorted = arraySort.sort(function(a, b) {
+            return b["octet"] - a["octet"];
+        });
+
+        return arraySorted;
     }
 
     // PARTIE LOGIQUE
