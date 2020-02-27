@@ -1,7 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>Concernant les mails, tu es plutôt du genre...</h1>
-    <SkipButton name="mail" @go-back="$emit('go-back')" />
+    <SkipButton name="mail" @skip="skipStep" />
     <radio :options="options" @emitValue="emitValue" />
   </div>
 </template>
@@ -41,6 +41,9 @@ export default {
   methods: {
     emitValue(value) {
       this.$emit('emitValue', { name: 'mail', data: value })
+    },
+    skipStep(value) {
+      this.$emit('skip', value)
     }
   }
 }

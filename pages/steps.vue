@@ -8,7 +8,7 @@
         :firstPartData="firstPartData"
         @emitValue="updateCurrentValue"
         @emitFinalValue="goToNextStep"
-        @go-back="goToNextStep"
+        @skip="goToNextStep"
       />
     </transition>
     <fm-button

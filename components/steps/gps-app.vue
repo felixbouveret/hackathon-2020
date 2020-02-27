@@ -3,7 +3,7 @@
     <h1>
       Laquelle de ces applications utilises-tu ?
     </h1>
-    <SkipButton name="gps-app" @go-back="$emit('go-back')" />
+    <SkipButton name="gps-app" @skip="skipStep" />
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
@@ -62,6 +62,9 @@ export default {
         name: 'gpsApp',
         data: value
       })
+    },
+    skipStep(value) {
+      this.$emit('skip', value)
     }
   }
 }

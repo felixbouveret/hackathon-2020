@@ -1,7 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>Tu écoutes de la musique sur quelle plateforme ?</h1>
-    <SkipButton name="music" @go-back="$emit('go-back')" />
+    <SkipButton name="music" @skip="skipStep" />
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
@@ -84,6 +84,9 @@ export default {
         name: 'music',
         data: value
       })
+    },
+    skipStep(value) {
+      this.$emit('skip', value)
     }
   }
 }

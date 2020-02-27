@@ -1,7 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>Les films et les séries, pour toi ça rime avec :</h1>
-    <SkipButton name="movies" @go-back="$emit('go-back')" />
+    <SkipButton name="movies" @skip="skipStep" />
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
@@ -71,6 +71,9 @@ export default {
         name: 'movies',
         data: value
       })
+    },
+    skipStep(value) {
+      this.$emit('skip', value)
     }
   }
 }

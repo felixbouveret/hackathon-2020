@@ -1,7 +1,7 @@
 <template>
     <button
     class="skip-button"
-      @click="$emit('go-back', { name: name, data: { skiped: true } })"
+      @click="$emit('skip', { name: name, data: { skiped: true } })"
     >
       Skip
     </button>
@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss">
 .skip-button {
-    
+
 
 }
 </style>
