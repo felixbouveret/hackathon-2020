@@ -21,12 +21,12 @@ export default {
         {
           id: 'non',
           label: 'Non',
-          value: false
+          value: 'no'
         },
         {
           id: 'oui',
           label: 'Oui',
-          value: true
+          value: 'yes'
         }
       ]
     }

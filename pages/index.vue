@@ -13,6 +13,9 @@ import fmButton from '~/components/form/fm-button'
 export default {
   components: {
     fmButton
+  },
+  created() {
+    console.log(this.$store.state);
   }
 }
 </script>

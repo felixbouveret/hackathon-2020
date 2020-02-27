@@ -8,7 +8,9 @@ const steps = {
     currentStep: 0,
     maxStep: 7,
     nextStep: data => {
-      if (data.data) {
+      console.log(data);
+
+      if (data.data === 'yes') {
         return 'socialMedia'
       } else {
         return 'noDevice'
