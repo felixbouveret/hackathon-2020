@@ -5,6 +5,7 @@
       :firstPartData="firstPartData"
       @emitValue="updateCurrentValue"
       @emitFinalValue="goToNextStep"
+      @go-back="goToNextStep"
     />
     <fm-button
       :text="stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'"
@@ -43,16 +44,24 @@ export default {
       this.currentValue = value
     },
     goToNextStep(payload) {
+
+      if (this.stepsManager.getStep().externalLink) {
+        this.stepsManager.goToNextStep()
+      }
       // On check si la data vient d'un step à 2 étape
-      if (payload && payload.data) {
+      else if (payload && payload.data) {
         this.updateState(payload)
         this.stepsManager.goToNextStep(payload)
+        this.firstPartData = undefined
+        this.currentValue = undefined
       }
       // Check si il y une data dans la valeur emitted
       // Dans le cas contraire on ne la stock pas dans le store
-      else if (this.currentValue.data) {
+      else if (this.currentValue && this.currentValue.data) {
         this.updateState(this.currentValue)
         this.stepsManager.goToNextStep(this.currentValue)
+        this.firstPartData = undefined
+        this.currentValue = undefined
         //
       } else if (this.currentValue) {
         // On stock la valeur dans une data qui correspond

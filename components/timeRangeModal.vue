@@ -26,32 +26,32 @@ export default {
       currentIndex: 0,
       options: [
         {
-          id: 1,
+          id: 10,
           value: 0.125,
           label: '5 - 10'
         },
         {
-          id: 2,
+          id: 20,
           value: 0.375,
           label: '15 - 30 MIN'
         },
         {
-          id: 3,
+          id: 30,
           value: 0.75,
           label: '30 - 60 MIN'
         },
         {
-          id: 4,
+          id: 40,
           value: 1.5,
           label: '1 - 2 H'
         },
         {
-          id: 5,
+          id: 50,
           value: 3,
           label: '2 - 4 H'
         },
         {
-          id: 6,
+          id: 60,
           value: 5,
           label: '4 H +'
         }
