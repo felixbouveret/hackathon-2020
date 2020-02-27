@@ -1,3 +1,5 @@
+import vulg from './json/vulgarisation.js';
+
 // Constante de consomation selon les sites visités
 // ------------------------------------------------
 
@@ -26,26 +28,8 @@ const CONSO_MOY = {
 
 // Tableau des vulgarisations
 // -----------------------------
-const IMPACT_EX = [
-    {
-        label : "trajet Paris Bordeaux", 
-        value : 186
-    },
-    {
-        label : "trajet Paris Marseille",
-        value : 360
-    },
-    {
-        label : "trajet Paris Dunkerque",
-        value : 60
-    },
-    {
-        label : "trajet Lille Marseille",
-        value : 360
-    }
-];
 
-
+const IMPACT_EX = vulg.array;
 
 // Ratio de conversion mo => g
 // -----------------------------
