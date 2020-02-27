@@ -2,14 +2,11 @@ import TranslateData from './TranslateData.js';
 var testData = {
 
     reseauSociaux : {
-        linkedin : 2,
-        facebook : 2,
-        twitter : 2,
-        instagram : 4
+        facebook : 1,
     },
 
     music : {
-
+        spotify : 5
     },
 
     mail : true,
@@ -24,7 +21,12 @@ var testData = {
     jeuxVideo : false
 
 }
+let test = TranslateData.do(testData);
 console.log(
-    TranslateData.do(testData).sortedConso()
+        "Total : " + test.gTotalByYear +"g de CO2" + "\r\n\r\n"
+        + "Avion : " + test.randomSentenceAvion() + "\r\n"
+        + "Train : " + test.randomSentenceTrain() + "\r\n"
+        + "Voiture : " + test.randomSentenceVoiture() + "\r\n"
+        + "Arbre : " + test.randomSentenceArbre() + "\r\n"
     );
 

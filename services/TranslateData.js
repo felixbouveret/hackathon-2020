@@ -1,4 +1,4 @@
-import vulg from './json/vulgarisation.js';
+import vulgTrain from './json/vulgarisation.js';
 
 // Constante de consomation selon les sites visités
 // ------------------------------------------------
@@ -29,7 +29,10 @@ const CONSO_MOY = {
 // Tableau des vulgarisations
 // -----------------------------
 
-const IMPACT_EX = vulg.array;
+const IMPACT_EX_TRAIN = vulgTrain.array;
+const IMPACT_EX_VOITURE = 162;
+const IMPACT_EX_AVION = 765300;
+const IMPACT_EX_ARBRE = 137;
 
 // Ratio de conversion mo => g
 // -----------------------------
@@ -68,11 +71,27 @@ export default class TranslateData {
         return percent;
     }
 
-    randomSentence = () => {
-        let index = Math.floor(Math.random() * IMPACT_EX.length);
-        let choosenExemple = IMPACT_EX[index];
+    randomSentenceTrain = () => {
+        let index = Math.floor(Math.random() * IMPACT_EX_TRAIN.length);
+        let choosenExemple = IMPACT_EX_TRAIN[index];
         let ratioExemple = Math.round((this.gTotalByYear / 1000) / choosenExemple.value);
         return "correspond à "+ ratioExemple + " " + choosenExemple.label;
+    }
+
+    randomSentenceAvion = () => {
+        let nbTrajet = Math.round(this.gTotalByYear / IMPACT_EX_AVION);
+        return "correspond à "+ nbTrajet +" trajet Paris / Tokyo";
+    }
+
+    randomSentenceArbre = () => {
+        let nbJour = Math.round(this.gTotalByYear / IMPACT_EX_ARBRE);
+        let nbAnnee = Math.round(nbJour/365);
+        return "mettra " + nbJour + " jours à absorber le CO2 (soit " + nbAnnee + " ans)";
+    }
+
+    randomSentenceVoiture = () => {
+        let nbKm = Math.round(this.gTotalByYear / IMPACT_EX_VOITURE);
+        return "correspond à " + nbKm + " km en voiture";
     }
 
     sortedConso = () => {
