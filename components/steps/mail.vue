@@ -1,7 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>Concernant les mails, tu es plutôt du genre...</h1>
-     <SkipButton name="mail" @go-back="$emit('go-back')" />
+    <SkipButton name="mail" @go-back="$emit('go-back')" />
     <radio :options="options" @emitValue="emitValue" />
   </div>
 </template>
@@ -27,12 +27,12 @@ export default {
       options: [
         {
           id: 1,
-          value: 'full',
+          value: 'yes',
           label: 'Ma boîte mail est toujours pleine'
         },
         {
           id: 2,
-          value: 'empty',
+          value: 'no',
           label: 'Ils ne me résistent pas, je le supprime tous !'
         }
       ]

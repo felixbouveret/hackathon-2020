@@ -8,13 +8,13 @@
         v-if="firstPartData"
         @emitFinalValue="emitFinalValue"
         :names="firstPartData"
+        :options="options"
       />
     </transition>
   </div>
 </template>
 
 <script>
-
 import timeRangeModal from '../timeRangeModal'
 import Checkbox from '../form/fm-checkbox'
 import SkipButton from '../form/fm-button-skip'
@@ -39,32 +39,38 @@ export default {
         {
           id: 1,
           value: 'facebook',
-          label: 'Facebook'
+          label: 'Facebook',
+          modalTitle: 'Facebook'
         },
         {
           id: 2,
           value: 'instagram',
-          label: 'Instagram'
+          label: 'Instagram',
+          modalTitle: 'Instagram'
         },
         {
           id: 3,
           value: 'twitter',
-          label: 'Twitter'
+          label: 'Twitter',
+          modalTitle: 'Twitter'
         },
         {
           id: 4,
           value: 'linkedin',
-          label: 'Linkedin'
+          label: 'Linkedin',
+          modalTitle: 'Linkedin'
         },
         {
           id: 5,
           value: 'twitch',
-          label: 'Twitch'
+          label: 'Twitch',
+          modalTitle: 'Twitch'
         },
         {
           id: 6,
           value: 'youtube',
-          label: 'Youtube'
+          label: 'Youtube',
+          modalTitle: 'Youtube'
         }
       ]
     }

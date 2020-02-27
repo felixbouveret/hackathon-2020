@@ -1,7 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>
-      Est-ce que tu utilises une application pour tes déplacements quotidiens ?
+      Laquelle de ces applications utilises-tu ?
     </h1>
     <SkipButton name="gps-app" @go-back="$emit('go-back')" />
     <checkbox :options="options" @emitValue="emitValue" />
@@ -10,6 +10,7 @@
         v-if="firstPartData"
         @emitFinalValue="emitFinalValue"
         :names="firstPartData"
+        :options="options"
       />
     </transition>
   </div>
@@ -40,12 +41,14 @@ export default {
         {
           id: 1,
           value: 'googleMaps',
-          label: 'Google Maps'
+          label: 'Google Maps',
+          modalTitle: 'Google Maps'
         },
         {
           id: 2,
           value: 'waze',
-          label: 'Waze'
+          label: 'Waze',
+          modalTitle: 'Waze'
         }
       ]
     }
