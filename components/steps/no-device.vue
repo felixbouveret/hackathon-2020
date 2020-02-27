@@ -1,6 +1,6 @@
 <template>
   <div class="no-device">
-    <h1>Ok merci</h1>
+    <h1 class="content">Ok merci</h1>
   </div>
 </template>
 
