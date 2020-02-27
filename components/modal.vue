@@ -1,19 +1,11 @@
 <template>
-  <div class="modal" v-if="!closed">
+  <div class="modal">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Modal',
-  props: {
-    closed: {
-      type: Boolean,
-      default() {
-        return false
-      }
-    }
-  }
+  name: 'Modal'
 }
 </script>

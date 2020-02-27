@@ -1,5 +1,5 @@
 <template>
-  <modal v-if="names" :closed="closed">
+  <modal v-if="names">
     <span>{{ currentLabel }}</span>
     <radio :options="options" @emitValue="emitValue" :key="currentIndex" />
   </modal>
@@ -22,7 +22,6 @@ export default {
   },
   data() {
     return {
-      closed: false,
       finalData: {},
       currentIndex: 0,
       options: [
