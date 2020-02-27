@@ -19,6 +19,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  .fm-button {
+    background-color: $main-color;
+  }
 </style>
