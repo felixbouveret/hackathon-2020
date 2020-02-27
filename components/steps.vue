@@ -1,5 +1,6 @@
 <template>
   <div class="steps-wrapper">
+    <progress-bar :max="maxStepNumber" :current="currentStepNumber" />
     <component
       :is="currentStep"
       :firstPartData="firstPartData"
@@ -17,11 +18,13 @@
 <script>
 import stepsScript from '~/services/steps'
 import fmButton from '~/components/form/fm-button'
+import progressBar from '../components/progressBar'
 import { mapActions } from 'vuex'
 
 export default {
   components: {
-    fmButton
+    fmButton,
+    progressBar
   },
   data() {
     return {
@@ -34,6 +37,12 @@ export default {
   computed: {
     currentStep() {
       return this.stepsManager.getStep().component
+    },
+    currentStepNumber() {
+      return this.stepsManager.getStep().currentStep
+    },
+    maxStepNumber() {
+      return this.stepsManager.getStep().maxStep
     }
   },
   methods: {
