@@ -44,7 +44,7 @@ export default {
     },
     goToNextStep(payload) {
       // On check si la data vient d'un step à 2 étape
-      if (payload.data) {
+      if (payload && payload.data) {
         this.updateState(payload)
         this.stepsManager.goToNextStep(payload)
       }
