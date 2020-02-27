@@ -1,22 +1,29 @@
 <template>
-  <modal>
-    Hey I'm a modal
-    <checkbox :options="options" @emitValue="emitValue" />
+  <modal v-if="names">
+    <span>{{ currentLabel }}</span>
+    <radio :options="options" @emitValue="emitValue" :key="currentIndex" />
   </modal>
 </template>
 
 <script>
 import Modal from './modal'
-import Checkbox from './form/fm-checkbox'
+import Radio from './form/fm-radio'
 
 export default {
   name: 'timeRangeModal',
   components: {
     Modal,
-    Checkbox
+    Radio
+  },
+  props: {
+    names: {
+      required: true
+    }
   },
   data() {
     return {
+      finalData: {},
+      currentIndex: 0,
       options: [
         {
           id: 1,
@@ -51,10 +58,26 @@ export default {
       ]
     }
   },
+  computed: {
+    currentLabel() {
+      return this.names[this.currentIndex]
+        ? this.names[this.currentIndex].toUpperCase()
+        : ''
+    }
+  },
   methods: {
     emitValue(value) {
-      console.log(value)
-      this.$emit('emitValue', value)
+      const currName = this.names[this.currentIndex]
+      this.finalData[currName] = value
+      const nextIndex = this.currentIndex + 1
+      if (!this.names[nextIndex]) {
+        this.$emit('emitFinalValue', {
+          name: 'socialMedia',
+          data: this.finalData
+        })
+      } else {
+        this.currentIndex = nextIndex
+      }
     }
   }
 }
