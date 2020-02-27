@@ -71,10 +71,7 @@ export default {
       this.finalData[currName] = value
       const nextIndex = this.currentIndex + 1
       if (!this.names[nextIndex]) {
-        this.$emit('emitFinalValue', {
-          name: 'socialMedia',
-          data: this.finalData
-        })
+        this.$emit('emitFinalValue', this.finalData)
       } else {
         this.currentIndex = nextIndex
       }

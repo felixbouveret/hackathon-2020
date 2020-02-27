@@ -1,15 +1,22 @@
 export const state = () => ({
-  data: {}
+  form: {},
+  currentStepNumber: 1
 })
 
 export const mutations = {
-  SET_DATA: (state, payload) => {
-    state.data[payload.name] = payload.data
+  SET_FORM: (state, payload) => {
+    state.form[payload.name] = payload.data
+  },
+  SET_CURRENT_STEP_NUMBER: (state, payload) => {
+    state.currentStepNumber[payload.name] = payload.data
   }
 }
 
 export const actions = {
   updateState(context, payload) {
-    context.commit('SET_DATA', payload)
+    context.commit('SET_FORM', payload)
+  },
+  updateCurrentStepNumber(context, payload) {
+    context.commit('SET_CURRENT_STOP_NUMBER', payload)
   }
 }

@@ -1,15 +1,19 @@
-import Device from '~/components/steps/device'
+import device from '~/components/steps/device'
 import noDevice from '~/components/steps/no-device'
+import music from '~/components/steps/music'
 import socialMedia from '~/components/steps/social-media'
+import mail from '~/components/steps/mail'
+import movies from '~/components/steps/movies'
+import gpsApp from '~/components/steps/gps-app'
+import games from '~/components/steps/games'
 
 const steps = {
   device: {
-    component: Device,
-    currentStep: 0,
-    maxStep: 7,
+    component: device,
+    currentStep: 1,
     nextStep: data => {
       if (data.data === 'yes') {
-        return 'socialMedia'
+        return 'music'
       } else {
         return 'noDevice'
       }
@@ -18,18 +22,51 @@ const steps = {
   noDevice: {
     component: noDevice,
     externalLink: true,
-    currentStep: 1,
-    maxStep: 1,
+    currentStep: 7,
     nextStep: () => {
       $nuxt._router.push('/')
     }
   },
-  socialMedia: {
+  music: {
     currentStep: 2,
-    maxStep: 7,
+    component: music,
+    nextStep: data => {
+      return 'socialMedia'
+    }
+  },
+  socialMedia: {
+    currentStep: 3,
     component: socialMedia,
     nextStep: data => {
-      return 'foo'
+      return 'mail'
+    }
+  },
+  mail: {
+    currentStep: 4,
+    component: mail,
+    nextStep: data => {
+      return 'movies'
+    }
+  },
+  movies: {
+    currentStep: 5,
+    component: movies,
+    nextStep: data => {
+      return 'gpsApp'
+    }
+  },
+  gpsApp: {
+    currentStep: 6,
+    component: gpsApp,
+    nextStep: data => {
+      return 'games'
+    }
+  },
+  games: {
+    currentStep: 7,
+    component: games,
+    nextStep: data => {
+      return undefined
     }
   }
 }
