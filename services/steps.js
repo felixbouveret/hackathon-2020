@@ -24,10 +24,12 @@ const steps = {
     }
   },
   socialMedia: {
-    currentStep: 1,
+    currentStep: 2,
     maxStep: 7,
     component: socialMedia,
-    nextStep: data => {}
+    nextStep: data => {
+      return 'foo'
+    }
   }
 }
 
@@ -42,7 +44,7 @@ export default function() {
       return this.steps[this.currentStep]
     },
     goToNextStep(data) {
-      if(this.currentStep === "noDevice") {
+      if (this.currentStep === 'noDevice') {
         this.steps[this.currentStep].nextStep()
       } else {
         this.currentStep = this.steps[this.currentStep].nextStep(data)
