@@ -32,8 +32,8 @@ export default {
     }
   },
   methods: {
-    emitValue(payload) {
-      this.$emit('emitValue', payload)
+    emitValue(data) {
+      this.$emit('emitValue', {name: 'has-device', data: data})
     }
   }
 }

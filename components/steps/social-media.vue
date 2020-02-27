@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     emitValue(value) {
-      this.$emit('emitValue', value)
+      this.$emit('emitValue', {name: 'reseau-sociaux', data: value})
     }
   }
 }
