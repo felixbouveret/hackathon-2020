@@ -1,11 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>Tu écoutes de la musique sur quelle plateforme ?</h1>
-    <button
-      @click="$emit('go-back', { name: 'socialMedia', data: { skiped: true } })"
-    >
-      Skip
-    </button>
+    <SkipButton name="music" @go-back="$emit('go-back')" />
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
@@ -20,12 +16,14 @@
 <script>
 import timeRangeModal from '../timeRangeModal'
 import Checkbox from '../form/fm-checkbox'
+import SkipButton from '../form/fm-button-skip'
 
 export default {
   name: 'music',
   components: {
     timeRangeModal,
-    Checkbox
+    Checkbox,
+    SkipButton
   },
   props: {
     firstPartData: {

@@ -1,17 +1,19 @@
 <template>
   <div class="step social-media">
     <h1>Concernant les mails, tu es plutôt du genre...</h1>
+     <SkipButton name="mail" @go-back="$emit('go-back')" />
     <radio :options="options" @emitValue="emitValue" />
   </div>
 </template>
 
 <script>
 import Radio from '../form/fm-radio'
-
+import SkipButton from '../form/fm-button-skip'
 export default {
   name: 'mail',
   components: {
-    Radio
+    Radio,
+    SkipButton
   },
   props: {
     firstPartData: {

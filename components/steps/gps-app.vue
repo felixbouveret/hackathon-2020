@@ -3,6 +3,7 @@
     <h1>
       Est-ce que tu utilises une application pour tes déplacements quotidiens ?
     </h1>
+    <SkipButton name="gps-app" @go-back="$emit('go-back')" />
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
@@ -17,12 +18,14 @@
 <script>
 import timeRangeModal from '../timeRangeModal'
 import Checkbox from '../form/fm-checkbox'
+import SkipButton from '../form/fm-button-skip'
 
 export default {
   name: 'gps-app',
   components: {
     timeRangeModal,
-    Checkbox
+    Checkbox,
+    SkipButton
   },
   props: {
     firstPartData: {
