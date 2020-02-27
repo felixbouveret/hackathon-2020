@@ -1,5 +1,5 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1>
       Est-ce que tu utilises une application pour tes déplacements quotidiens ?
     </h1>

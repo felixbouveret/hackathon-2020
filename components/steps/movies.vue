@@ -1,5 +1,5 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1>Les films et les séries, pour toi ça rime avec :</h1>
     <checkbox :options="options" @emitValue="emitValue" />
     <timeRangeModal

@@ -1,5 +1,5 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1>Les jeux vidéos en ligne et toi ?</h1>
     <checkbox :options="options" @emitValue="emitValue" />
     <timeRangeModal

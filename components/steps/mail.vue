@@ -1,5 +1,5 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1>Concernant les mails, tu es plutôt du genre...</h1>
     <radio :options="options" @emitValue="emitValue" />
   </div>

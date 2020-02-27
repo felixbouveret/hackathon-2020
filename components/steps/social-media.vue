@@ -1,5 +1,5 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1 class="content">Quels réseaux sociaux utilises-tu quotidiennement ?</h1>
     <button
       @click="$emit('go-back', { name: 'socialMedia', data: { skiped: true } })"
