@@ -21,7 +21,7 @@ const CONSO_MOY = {
      MAIL            :   1000, 
      GOOGLEMAP       :   1080, 
      WAZE            :   0.69, 
-     JV              :   2000
+     JEUXVIDEO       :   2000
 }
 
 // Tableau des vulgarisations
@@ -38,6 +38,10 @@ const IMPACT_EX = [
     {
         label : "trajet Paris Dunkerque",
         value : 60
+    },
+    {
+        label : "trajet Lille Marseille",
+        value : 360
     }
 ];
 
@@ -52,7 +56,7 @@ const RATIO_G = 0.669;
 // Déclaration de la classe de traduction 
 // ---------------------------------------
 
-export default class TranslateData{
+export default class TranslateData {
     constructor(dataObject) {
 
         // dataObject => @object 
@@ -74,7 +78,7 @@ export default class TranslateData{
 
     // Methodes d'affichage
     // ----------------------------------------------------
-    
+
     percentParis = () => {
         let percent = (this.total * RATIO_G) * 100 / 9000;
         return percent;
@@ -83,8 +87,48 @@ export default class TranslateData{
     randomSentence = () => {
         let index = Math.floor(Math.random() * IMPACT_EX.length);
         let choosenExemple = IMPACT_EX[index];
-        let ratioExemple = Math.floor((this.gTotalByYear / 1000) / choosenExemple.value);
+        let ratioExemple = Math.round((this.gTotalByYear / 1000) / choosenExemple.value);
         return "correspond à "+ ratioExemple + " " + choosenExemple.label;
+    }
+
+    sortedConso = () => {
+        let arraySort = [];
+        for(let key in this.data) {
+
+            //Si on entre dans les booléen on prend juste la valeur
+            if(key == "mail" || key == "jeuxVideo") {
+
+                if(this.data[key]) {
+
+                    arraySort.push({
+                        name : key, 
+                        octet : CONSO_MOY[key.toUpperCase()], 
+                        time : 1
+                    });   
+
+                }
+                
+            // Sinon on parcour les différent sous objet
+            } else {
+
+                    for(let secondKey in this.data[key]) {
+                        
+                        arraySort.push({
+                            name : secondKey, 
+                            octet : CONSO_MOY[secondKey.toUpperCase()]*this.data[key][secondKey], 
+                            time : this.data[key][secondKey]
+                        });
+        
+                    }    
+            }      
+        }
+
+        // On tri le tableau
+        let arraySorted = arraySort.sort(function(a, b) {
+            return b["octet"] - a["octet"];
+        });
+
+        return arraySorted;
     }
 
     // PARTIE LOGIQUE
