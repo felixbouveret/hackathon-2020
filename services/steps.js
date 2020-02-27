@@ -1,17 +1,8 @@
-import Hello from '~/components/steps/hello'
 import Device from '~/components/steps/device'
 import noDevice from '~/components/steps/noDevice'
 import socialMedia from '~/components/steps/social-media'
 
 const steps = {
-  hello: {
-    component: Hello,
-    currentStep: 0,
-    maxStep: 7,
-    nextStep: data => {
-      return 'device'
-    }
-  },
   device: {
     component: Device,
     currentStep: 0,
@@ -29,7 +20,7 @@ const steps = {
     currentStep: 1,
     maxStep: 1,
     nextStep: () => {
-      return 'hello'
+      $nuxt._router.push('/')
     }
   },
   socialMedia: {
@@ -41,7 +32,7 @@ const steps = {
 }
 
 export default function() {
-  let currentStep = 'hello'
+  let currentStep = 'device'
 
   return {
     steps,
@@ -51,7 +42,11 @@ export default function() {
       return this.steps[this.currentStep]
     },
     goToNextStep(data) {
-      this.currentStep = this.steps[this.currentStep].nextStep(data)
+      if(this.currentStep === "noDevice") {
+        this.steps[this.currentStep].nextStep()
+      } else {
+        this.currentStep = this.steps[this.currentStep].nextStep(data)
+      }
     }
   }
 }

@@ -1,35 +1,20 @@
 <template>
-  <div>
-    <progress-bar :max="maxStepNumber" :current="currentStepNumber" />
-    <steps />
+  <div class="no-device">
+    <h1 class="content">Bonjour 👋</h1>
+    <p class="content">Je me présente, je suis Timlow ! <br> Es-tu prêt à répondre à quelques questions à propos de tes habitudes quotidiennes sur le web ?</p>
+    <p class="content">Ça ne te prendra pas plus d'une minute et ça te fera gagner un temps fou par la suite 💪</p>
+    <nuxt-link to="/steps"> Go </nuxt-link>
   </div>
 </template>
 
 <script>
-import stepsScript from '~/services/steps'
-import progressBar from '../components/progressBar'
-import Steps from '~/components/steps'
+import fmButton from '~/components/form/fm-button'
 
 export default {
-  name: 'stepsPage',
   components: {
-    Steps,
-    progressBar
-  },
-  data() {
-    return {
-      stepsManager: stepsScript()
-    }
-  },
-  computed: {
-    currentStepNumber() {
-      return this.stepsManager.getStep().currentStep
-    },
-    maxStepNumber() {
-      return this.stepsManager.getStep().maxStep
-    }
+    fmButton
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
