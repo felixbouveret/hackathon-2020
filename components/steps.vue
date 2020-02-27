@@ -1,7 +1,7 @@
 <template>
   <div class="steps-wrapper">
-    <component :is="currentStep" @nextStep="goToNextStep" />
-    <!-- <fm-button text="Valider" @click="submitStep" /> -->
+    <component :is="currentStep" @emitValue="updateCurrentValue" />
+    <button text="Continuer" @click="goToNextStep">Continuer</button>
   </div>
 </template>
 
@@ -17,7 +17,8 @@ export default {
   data() {
     return {
       stepsManager: stepsScript(),
-      currentStepValue: {}
+      currentStepValue: {},
+      currentValue: null
     }
   },
   computed: {
@@ -29,9 +30,12 @@ export default {
     ...mapActions({
       updateState: 'updateState'
     }),
+    updateCurrentValue(value) {
+      this.currentValue = value
+    },
     goToNextStep(payload) {
-      this.updateState(payload)
-      this.stepsManager.goToNextStep(payload)
+      this.updateState(this.currentValue)
+      this.stepsManager.goToNextStep(this.currentValue)
     }
   }
 }

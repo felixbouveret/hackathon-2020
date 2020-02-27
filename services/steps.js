@@ -8,6 +8,7 @@ const steps = {
     currentStep: 0,
     maxStep: 7,
     nextStep: data => {
+      console.log(data)
       if (data) {
         return 'socialMedia'
       } else {
