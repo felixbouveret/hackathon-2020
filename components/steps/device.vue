@@ -19,14 +19,14 @@ export default {
     return {
       options: [
         {
-          id: 'non',
-          label: 'Non',
-          value: 'no'
-        },
-        {
           id: 'oui',
           label: 'Oui',
           value: 'yes'
+        },
+        {
+          id: 'non',
+          label: 'Non',
+          value: 'no'
         }
       ]
     }
@@ -41,10 +41,6 @@ export default {
 
 <style lang="scss">
 .step {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
   form {
     flex-basis: 100%;
   }

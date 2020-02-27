@@ -7,11 +7,13 @@
       Skip
     </button>
     <checkbox :options="options" @emitValue="emitValue" />
-    <timeRangeModal
-      v-if="firstPartData"
-      @emitFinalValue="emitFinalValue"
-      :names="firstPartData"
-    />
+    <transition name="scale" mode="in-out">
+      <timeRangeModal
+        v-if="firstPartData"
+        @emitFinalValue="emitFinalValue"
+        :names="firstPartData"
+      />
+    </transition>
   </div>
 </template>
 

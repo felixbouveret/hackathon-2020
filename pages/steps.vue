@@ -1,13 +1,16 @@
 <template>
   <div class="steps-wrapper" :class="currentStepBackground">
     <progress-bar class="bar" :max="7" :current="currentStepNumber" />
-    <component
-      :is="currentStep"
-      :firstPartData="firstPartData"
-      @emitValue="updateCurrentValue"
-      @emitFinalValue="goToNextStep"
-      @go-back="goToNextStep"
-    />
+    <transition name="fade" mode="out-in">
+      <component
+        class="step"
+        :is="currentStep"
+        :firstPartData="firstPartData"
+        @emitValue="updateCurrentValue"
+        @emitFinalValue="goToNextStep"
+        @go-back="goToNextStep"
+      />
+    </transition>
     <fm-button
       :text="stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'"
       @submitStep="goToNextStep"
@@ -90,6 +93,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   padding: 70px 0;
+  transition: background-color .6s;
 
   .bar {
     position: absolute;
@@ -97,5 +101,8 @@ export default {
     top: 0;
     left: 0;
   }
+}
+.step {
+  width: 100%;
 }
 </style>

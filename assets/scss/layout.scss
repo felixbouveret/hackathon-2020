@@ -2,24 +2,37 @@
 
 body {
   font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
 }
 
-.content {
-  font-size: 2.625em;
-  text-align: center;
-  // margin-bottom: 3.25em;
-}
-
-
-.fadeIn-enter-active {
-  transition: all .3s .3s ease;
-}
-.fadeIn-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: all .3s ease;
 }
-.fadeIn-enter, .fadeIn-leave-to {
-  transform: translateY(10px);
+
+.fade-enter {
   opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.scale-enter-active,
+.scale-leave-active {
+  transition: all .3s ease;
+}
+
+.scale-enter {
+  opacity: 0;
+  transform: scale(1.15);
+}
+
+.scale-leave-to {
+  opacity: 0;
+  transform: scale(.85);
 }
 
 
@@ -32,4 +45,15 @@ body {
 .purple-section {
   background-color: $purple;
   color: white;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  h1 {
+    font-size: 2.625em;
+    text-align: center;
+  }
 }

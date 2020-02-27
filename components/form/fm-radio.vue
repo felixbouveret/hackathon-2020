@@ -1,5 +1,5 @@
 <template>
-  <div class="radios-container">
+  <div class="radios-container" :class="isModal ? 'isModal' : ''">
     <div class="radio" v-for="(option, index) in options" :key="index">
       <input
         type="radio"
@@ -21,6 +21,10 @@ export default {
       type: Array,
       default: [],
       require: true
+    },
+    isModal: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -43,6 +47,26 @@ export default {
   align-items: center;
   height: 100%;
   padding: 64px 0;
+  max-width: $inner;
+  width: 95%;
+  margin: 0 auto;
+
+  &.isModal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
+    max-width: 872px;
+    justify-content: initial;
+    align-items: initial;
+    height: auto;
+
+    .radio {
+      max-width: none;
+      max-height: none;
+      height: auto;
+      margin: 0;
+    }
+  }
 }
 .radio {
   width: 100%;
@@ -57,9 +81,12 @@ label {
   display: flex;
   border-radius: 8px;
   border: 4px solid $skin;
+  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: .4);
   background-color: $skin;
+  transition: box-shadow .3s;
 
   span {
+    color: black;
     align-self: flex-end;
     width: 100%;
     text-align: center;
@@ -74,6 +101,7 @@ input {
   appearance: none;
   &:checked + label {
     border-color: black;
+    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: .4);
   }
 }
 </style>
