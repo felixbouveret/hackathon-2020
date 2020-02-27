@@ -1,7 +1,7 @@
 <template>
   <div class="step social-media">
     <h1>Les jeux vidéos en ligne et toi ?</h1>
-    <checkbox :options="options" @emitValue="emitValue" />
+    <radio :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
         v-if="firstPartData && firstPartData[0] !== false"
