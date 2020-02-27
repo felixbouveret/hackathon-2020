@@ -1,7 +1,9 @@
 <template>
   <modal v-if="names">
-    <span>{{ currentLabel }}</span>
-    <radio :options="options" @emitValue="emitValue" :key="currentIndex" />
+    <div class="modal-container">
+      <h2>{{ currentLabel }}</h2>
+      <radio is-modal :options="options" @emitValue="emitValue" :key="currentIndex" />
+    </div>
   </modal>
 </template>
 
@@ -79,3 +81,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+h2 {
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: white;
+}
+.modal-container {
+  width: 100%;
+  margin: auto;
+}
+</style>

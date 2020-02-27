@@ -27,14 +27,15 @@ export default {
 
 <style lang="scss">
 .progress-bar {
-  height: 20px;
+  height: 10px;
   width: 100%;
-  border: solid 3px black;
+  background-color: $grey-progress-bar;
+
 }
 
 .progress-bar span {
   display: block;
-  height: 20px;
+  height: 100%;
   width: 0%;
   background-color: black;
   transition: 0.2s;

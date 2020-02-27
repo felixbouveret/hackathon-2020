@@ -1,12 +1,14 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1>Les jeux vidéos en ligne et toi ?</h1>
     <checkbox :options="options" @emitValue="emitValue" />
-    <timeRangeModal
-      v-if="firstPartData"
-      @emitFinalValue="emitFinalValue"
-      :names="firstPartData"
-    />
+    <transition name="scale" mode="in-out">
+      <timeRangeModal
+        v-if="firstPartData"
+        @emitFinalValue="emitFinalValue"
+        :names="firstPartData"
+      />
+    </transition>
   </div>
 </template>
 

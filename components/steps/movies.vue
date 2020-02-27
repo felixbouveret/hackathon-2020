@@ -1,24 +1,29 @@
 <template>
-  <div class="social-media">
+  <div class="step social-media">
     <h1>Les films et les séries, pour toi ça rime avec :</h1>
+    <SkipButton name="movies" @go-back="$emit('go-back')" />
+ 
     <checkbox :options="options" @emitValue="emitValue" />
-    <timeRangeModal
-      v-if="firstPartData"
-      @emitFinalValue="emitFinalValue"
-      :names="firstPartData"
-    />
+    <transition name="scale" mode="in-out">
+      <timeRangeModal
+        v-if="firstPartData"
+        @emitFinalValue="emitFinalValue"
+        :names="firstPartData"
+      />
+    </transition>
   </div>
 </template>
 
 <script>
 import timeRangeModal from '../timeRangeModal'
 import Checkbox from '../form/fm-checkbox'
-
+import SkipButton from '../form/fm-button-skip'
 export default {
   name: 'movies',
   components: {
     timeRangeModal,
-    Checkbox
+    Checkbox,
+    SkipButton
   },
   props: {
     firstPartData: {

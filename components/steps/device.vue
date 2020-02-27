@@ -1,6 +1,6 @@
 <template>
-  <div class="device">
-    <h1>Utilises-tu un appareil connecté ?</h1>
+  <div class="step device">
+    <h1 class="content">Utilises-tu un appareil connecté ?</h1>
     <form>
       <fm-radio :options="options" @emitValue="emitValue" />
     </form>
@@ -19,14 +19,14 @@ export default {
     return {
       options: [
         {
-          id: 'non',
-          label: 'Non',
-          value: 'no'
-        },
-        {
           id: 'oui',
           label: 'Oui',
           value: 'yes'
+        },
+        {
+          id: 'non',
+          label: 'Non',
+          value: 'no'
         }
       ]
     }
@@ -39,4 +39,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.step {
+  form {
+    flex-basis: 100%;
+  }
+}
+</style>
