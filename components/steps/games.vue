@@ -4,9 +4,10 @@
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
-        v-if="firstPartData"
+        v-if="firstPartData && firstPartData[0] !== false"
         @emitFinalValue="emitFinalValue"
         :names="firstPartData"
+        :options="options"
       />
     </transition>
   </div>
@@ -14,13 +15,13 @@
 
 <script>
 import timeRangeModal from '../timeRangeModal'
-import Checkbox from '../form/fm-checkbox'
+import Radio from '../form/fm-radio'
 
 export default {
   name: 'games',
   components: {
     timeRangeModal,
-    Checkbox
+    Radio
   },
   props: {
     firstPartData: {
@@ -34,12 +35,13 @@ export default {
       options: [
         {
           id: 1,
-          value: 'like',
-          label: "J'adore ça !"
+          value: 'games',
+          label: "J'adore ça !",
+          modalTitle: 'Jeux videos en ligne'
         },
         {
           id: 2,
-          value: 'dislike',
+          value: false,
           label: 'Ça fait deux !'
         }
       ]
@@ -47,7 +49,11 @@ export default {
   },
   methods: {
     emitValue(value) {
-      this.$emit('emitValue', value)
+      if (!value) {
+        this.emitFinalValue(value)
+        return
+      }
+      this.$emit('emitValue', [value])
     },
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {

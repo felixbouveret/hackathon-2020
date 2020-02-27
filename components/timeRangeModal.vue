@@ -2,7 +2,12 @@
   <modal v-if="names">
     <div class="modal-container">
       <h2>{{ currentLabel }}</h2>
-      <radio is-modal :options="options" @emitValue="emitValue" :key="currentIndex" />
+      <radio
+        is-modal
+        :options="internalOptions"
+        @emitValue="emitValue"
+        :key="currentIndex"
+      />
     </div>
   </modal>
 </template>
@@ -20,13 +25,17 @@ export default {
   props: {
     names: {
       required: true
+    },
+    options: {
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       finalData: {},
       currentIndex: 0,
-      options: [
+      internalOptions: [
         {
           id: 10,
           value: 0.125,
@@ -62,9 +71,10 @@ export default {
   },
   computed: {
     currentLabel() {
-      return this.names[this.currentIndex]
-        ? this.names[this.currentIndex].toUpperCase()
-        : ''
+      const option = this.options.find(
+        option => option.value === this.names[this.currentIndex]
+      )
+      return option.modalTitle
     }
   },
   methods: {

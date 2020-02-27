@@ -2,13 +2,13 @@
   <div class="step social-media">
     <h1>Les films et les séries, pour toi ça rime avec :</h1>
     <SkipButton name="movies" @go-back="$emit('go-back')" />
- 
     <checkbox :options="options" @emitValue="emitValue" />
     <transition name="scale" mode="in-out">
       <timeRangeModal
         v-if="firstPartData"
         @emitFinalValue="emitFinalValue"
         :names="firstPartData"
+        :options="options"
       />
     </transition>
   </div>
@@ -38,22 +38,26 @@ export default {
         {
           id: 1,
           value: 'netflix',
-          label: 'Netflix'
+          label: 'Netflix',
+          modalTitle: 'Netflix'
         },
         {
           id: 2,
           value: 'amazon',
-          label: 'Amazon Prime'
+          label: 'Amazon Prime',
+          modalTitle: 'Amazon Prime'
         },
         {
           id: 3,
           value: 'streaming',
-          label: 'Streaming'
+          label: 'Streaming',
+          modalTitle: 'Streaming'
         },
         {
           id: 4,
           value: 'download',
-          label: 'Téléchargement'
+          label: 'Téléchargement',
+          modalTitle: 'Téléchargement'
         }
       ]
     }

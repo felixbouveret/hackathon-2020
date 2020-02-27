@@ -8,6 +8,7 @@
         v-if="firstPartData"
         @emitFinalValue="emitFinalValue"
         :names="firstPartData"
+        :options="options"
       />
     </transition>
   </div>
@@ -38,32 +39,38 @@ export default {
         {
           id: 1,
           value: 'spotify',
-          label: 'Spotify'
+          label: 'Spotify',
+          modalTitle: 'Spotify'
         },
         {
           id: 2,
           value: 'deezer',
-          label: 'Deezer'
+          label: 'Deezer',
+          modalTitle: 'Deezer'
         },
         {
           id: 3,
           value: 'youtube',
-          label: 'Youtube'
+          label: 'Youtube',
+          modalTitle: 'Youtube'
         },
         {
           id: 4,
           value: 'soundcloud',
-          label: 'Soundcloud'
+          label: 'Soundcloud',
+          modalTitle: 'Soundcloud'
         },
         {
           id: 5,
           value: 'appleMusic',
-          label: 'Apple Music'
+          label: 'Apple Music',
+          modalTitle: 'Apple Music'
         },
         {
           id: 6,
           value: 'autre',
-          label: 'Autre'
+          label: 'Autre',
+          modalTitle: 'Autre'
         }
       ]
     }
