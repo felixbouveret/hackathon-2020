@@ -7,7 +7,7 @@ body {
 .content {
   font-size: 2.625em;
   text-align: center;
-  margin-bottom: 3.25em;
+  // margin-bottom: 3.25em;
 }
 
 
@@ -20,4 +20,16 @@ body {
 .fadeIn-enter, .fadeIn-leave-to {
   transform: translateY(10px);
   opacity: 0;
+}
+
+
+.orange-section {
+  background-color: $orange;
+}
+.skin-section {
+  background-color: $skin;
+}
+.purple-section {
+  background-color: $purple;
+  color: white;
 }
