@@ -1,11 +1,6 @@
 <template>
   <div class="social-media">
-    <h1 class="content">Quels réseaux sociaux utilises-tu quotidiennement ?</h1>
-    <button
-      @click="$emit('go-back', { name: 'socialMedia', data: { skiped: true } })"
-    >
-      Skip
-    </button>
+    <h1>Les jeux vidéos en ligne et toi ?</h1>
     <checkbox :options="options" @emitValue="emitValue" />
     <timeRangeModal
       v-if="firstPartData"
@@ -20,7 +15,7 @@ import timeRangeModal from '../timeRangeModal'
 import Checkbox from '../form/fm-checkbox'
 
 export default {
-  name: 'social-media',
+  name: 'games',
   components: {
     timeRangeModal,
     Checkbox
@@ -37,33 +32,13 @@ export default {
       options: [
         {
           id: 1,
-          value: 'facebook',
-          label: 'Facebook'
+          value: 'like',
+          label: "J'adore ça !"
         },
         {
           id: 2,
-          value: 'instagram',
-          label: 'Instagram'
-        },
-        {
-          id: 3,
-          value: 'twitter',
-          label: 'Twitter'
-        },
-        {
-          id: 4,
-          value: 'linkedin',
-          label: 'Linkedin'
-        },
-        {
-          id: 5,
-          value: 'twitch',
-          label: 'Twitch'
-        },
-        {
-          id: 6,
-          value: 'youtube',
-          label: 'Youtube'
+          value: 'dislike',
+          label: 'Ça fait deux !'
         }
       ]
     }

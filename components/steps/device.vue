@@ -1,6 +1,6 @@
 <template>
   <div class="device">
-    <h1>Device</h1>
+    <h1>Utilises-tu un appareil connecté ?</h1>
     <form>
       <fm-radio :options="options" @emitValue="emitValue" />
     </form>
