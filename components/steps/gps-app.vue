@@ -50,7 +50,10 @@ export default {
       this.$emit('emitValue', value)
     },
     emitFinalValue(value) {
-      this.$emit('emitFinalValue', value)
+      this.$emit('emitFinalValue', {
+        name: 'gpsApp',
+        data: this.finalData
+      })
     }
   }
 }

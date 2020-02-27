@@ -1,24 +1,17 @@
 <template>
   <div class="social-media">
     <h1>Concernant les mails, tu es plutôt du genre...</h1>
-    <checkbox :options="options" @emitValue="emitValue" />
-    <timeRangeModal
-      v-if="firstPartData"
-      @emitFinalValue="emitFinalValue"
-      :names="firstPartData"
-    />
+    <radio :options="options" @emitValue="emitValue" />
   </div>
 </template>
 
 <script>
-import timeRangeModal from '../timeRangeModal'
-import Checkbox from '../form/fm-checkbox'
+import Radio from '../form/fm-radio'
 
 export default {
   name: 'mail',
   components: {
-    timeRangeModal,
-    Checkbox
+    Radio
   },
   props: {
     firstPartData: {
@@ -45,10 +38,7 @@ export default {
   },
   methods: {
     emitValue(value) {
-      this.$emit('emitValue', value)
-    },
-    emitFinalValue(value) {
-      this.$emit('emitFinalValue', value)
+      this.$emit('emitValue', { name: 'mail', data: value })
     }
   }
 }
