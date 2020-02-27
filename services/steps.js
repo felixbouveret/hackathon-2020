@@ -11,6 +11,7 @@ const steps = {
   device: {
     component: device,
     currentStep: 1,
+    color: 'orange',
     nextStep: data => {
       if (data.data === 'yes') {
         return 'music'
@@ -21,6 +22,7 @@ const steps = {
   },
   noDevice: {
     component: noDevice,
+    color: 'orange',
     externalLink: true,
     currentStep: 7,
     nextStep: () => {
@@ -28,44 +30,50 @@ const steps = {
     }
   },
   music: {
-    currentStep: 2,
     component: music,
+    currentStep: 2,
+    color: 'purple',
     nextStep: data => {
       return 'socialMedia'
     }
   },
   socialMedia: {
-    currentStep: 3,
     component: socialMedia,
+    currentStep: 3,
+    color: 'skin',
     nextStep: data => {
       return 'mail'
     }
   },
   mail: {
-    currentStep: 4,
     component: mail,
+    color: 'orange',
+    currentStep: 4,
     nextStep: data => {
       return 'movies'
     }
   },
   movies: {
-    currentStep: 5,
     component: movies,
+    color: 'purple',
+    currentStep: 5,
     nextStep: data => {
       return 'gpsApp'
     }
   },
   gpsApp: {
-    currentStep: 6,
     component: gpsApp,
+    color: 'skin',
+    currentStep: 6,
     nextStep: data => {
       return 'games'
     }
   },
   games: {
+    component: games,
+    color: 'purple',
     currentStep: 7,
     externalLink: true,
-    component: games,
     nextStep: data => {
       $nuxt._router.push('/report')
     }
