@@ -28,12 +28,14 @@ export default {
         {
           id: 1,
           value: 'oui',
-          label: "J'adore ça !"
+          label: "J'adore ça !",
+          image: 'jadore-ca'
         },
         {
           id: 2,
           value: 'non',
-          label: 'Ça fait deux !'
+          label: 'Ça fait deux !',
+          image: 'ca-fait-deux'
         }
       ]
     }

@@ -23,7 +23,7 @@ export default {
   name: 'gps-app',
   components: {
     timeRangeModal,
-    Checkbox,
+    Checkbox
   },
   props: {
     firstPartData: {
@@ -39,13 +39,15 @@ export default {
           id: 1,
           value: 'googleMap',
           label: 'Google Maps',
-          modalTitle: 'Google Maps'
+          modalTitle: 'Google Maps',
+          image: 'map'
         },
         {
           id: 2,
           value: 'waze',
           label: 'Waze',
-          modalTitle: 'Waze'
+          modalTitle: 'Waze',
+          image: 'waze'
         }
       ]
     }
@@ -59,7 +61,7 @@ export default {
         name: 'navigation',
         data: value
       })
-    },
+    }
   }
 }
 </script>
