@@ -17,6 +17,6 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba($color: #000000, $alpha: .7);
+  background-color: rgba($color: #000000, $alpha: .85);
 }
 </style>
