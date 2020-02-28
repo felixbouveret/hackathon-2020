@@ -66,7 +66,7 @@ export default {
           value: 'appleMusic',
           label: 'Apple Music',
           modalTitle: 'Apple Music',
-          image: 'apple-music'
+          image: 'appleMusic'
         },
         {
           id: 6,

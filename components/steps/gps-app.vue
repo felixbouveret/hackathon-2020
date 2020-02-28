@@ -40,7 +40,7 @@ export default {
           value: 'googleMap',
           label: 'Google Maps',
           modalTitle: 'Google Maps',
-          image: 'map'
+          image: 'googleMap'
         },
         {
           id: 2,

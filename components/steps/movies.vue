@@ -44,7 +44,7 @@ export default {
           value: 'amazonprime',
           label: 'Amazon Prime',
           modalTitle: 'Amazon Prime',
-          image: 'amazon'
+          image: 'amazonprime'
         },
         {
           id: 3,
@@ -58,7 +58,7 @@ export default {
           value: 'download',
           label: 'Téléchargement',
           modalTitle: 'Téléchargement',
-          image: 'telechargement'
+          image: 'download'
         }
       ]
     }

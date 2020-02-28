@@ -5,7 +5,9 @@
       <div class="energy-wrapper">
         <div class="flex-energy-app">
           <div class="energy-app" v-for="(conso, index) in consos" :key="index">
-            <div class="icon-energy-app"></div>
+            <div class="icon-energy-app">
+              <img :src="conso.image" alt="Illustration" />
+            </div>
             <div class="text-energy-app">
               <p class="name-energy-app">
                 {{ conso.name.charAt(0).toUpperCase() + conso.name.slice(1) }}
@@ -71,8 +73,15 @@ h2 {
       .icon-energy-app {
         width: 68px;
         height: 100%;
-        background-color: $main-color;
         border-radius: $radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 80%;
+          margin-right: 10px;
+        }
       }
       .text-energy-app {
         .name-energy-app {

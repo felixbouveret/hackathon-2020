@@ -26,7 +26,7 @@ export default {
           id: 1,
           value: 'yes',
           label: 'Ma boîte mail est toujours pleine',
-          image: 'full-mail'
+          image: 'mail'
         },
         {
           id: 2,

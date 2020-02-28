@@ -2,7 +2,7 @@
   <div class="report-container" v-if="report">
     <accords :accords="report.paris" />
     <representation :datas="representation" />
-    <consos :consos="report.consos" />
+    <consos :consos="consommations" />
     <solutions />
     <pied-de-page />
   </div>
@@ -127,6 +127,17 @@ export default {
           image: require('~/assets/images/illus/train.svg')
         }
         return [arbre, avion, voiture, train]
+      }
+    },
+    consommations() {
+      if (!this.report) {
+        return false
+      } else {
+        this.report.consos.forEach(conso => {
+          const image = require(`~/assets/images/illus/${conso.name}.svg`)
+          conso.image = image
+        })
+        return this.report.consos
       }
     }
   },
