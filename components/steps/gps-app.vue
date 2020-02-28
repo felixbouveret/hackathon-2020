@@ -40,7 +40,7 @@ export default {
       options: [
         {
           id: 1,
-          value: 'googleMaps',
+          value: 'googleMap',
           label: 'Google Maps',
           modalTitle: 'Google Maps'
         },
@@ -59,7 +59,7 @@ export default {
     },
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {
-        name: 'gpsApp',
+        name: 'navigation',
         data: value
       })
     },

@@ -57,7 +57,7 @@ export default {
     },
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {
-        name: 'games',
+        name: 'jeuxVideo',
         data: value
       })
     }

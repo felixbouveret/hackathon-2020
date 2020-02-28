@@ -81,7 +81,7 @@ export default {
     },
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {
-        name: 'socialMedia',
+        name: 'reseauSociaux',
         data: value
       })
     },

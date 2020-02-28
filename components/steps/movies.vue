@@ -43,7 +43,7 @@ export default {
         },
         {
           id: 2,
-          value: 'amazon',
+          value: 'amazonprime',
           label: 'Amazon Prime',
           modalTitle: 'Amazon Prime'
         },
@@ -68,7 +68,7 @@ export default {
     },
     emitFinalValue(value) {
       this.$emit('emitFinalValue', {
-        name: 'movies',
+        name: 'films',
         data: value
       })
     },
