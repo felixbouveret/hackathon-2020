@@ -66,6 +66,7 @@ h2 {
     font-weight: normal;
   }
   input[type='button'] {
+    appearance: none;
     font-family: 'Work Sans';
     font-weight: 500;
     padding: 1.5em 2em;
