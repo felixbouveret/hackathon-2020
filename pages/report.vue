@@ -1,15 +1,19 @@
 <template>
   <div class="report-container" v-if="report">
-    <h1 class="content">report</h1>
+    <accords :accords="report.paris" />
   </div>
   <div v-else>Chargement...</div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import accords from '~/components/dashboard/accords'
 
 export default {
   name: 'report',
+  components: {
+    accords
+  },
   data() {
     return {
       report: undefined
