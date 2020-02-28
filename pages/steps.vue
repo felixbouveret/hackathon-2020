@@ -98,6 +98,7 @@ export default {
 
 <style lang="scss" scoped>
 .steps-wrapper {
+  overflow: hidden;
   height: 100vh;
   min-height: 700px;
   position: relative;
