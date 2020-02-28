@@ -32,9 +32,9 @@ h1 {
   font-weight: 600;
 }
 p {
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 300;
-  line-height: 77px;
+  line-height: 160%;
 }
 .home {
   position: relative;
@@ -50,16 +50,16 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 112px 0;
+    padding: 116px 0;
     text-align: center;
 
     .info {
-      max-width: 660px;
+      max-width: 500px;
       margin: 0 auto;
       p {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 500;
-        line-height: 42px;
+        line-height: 150%;
       }
     }
   }
@@ -68,18 +68,20 @@ p {
     bottom: 0;
     &.left {
       left: 0;
+      width: 270px;
     }
     &.right {
       right: 0;
       bottom: 32px;
+      width: 240px;
     }
   }
   a {
     display: block;
-    padding: 32px 94px;
+    padding: 24px 64px;
     background-color: $orange;
     border-radius: 8px;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 500;
     color: #000000;
     text-decoration: none;
