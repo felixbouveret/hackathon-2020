@@ -7,10 +7,18 @@ export const state = () => ({
 
 export const mutations = {
   SET_FORM: (state, payload) => {
-    state.form[payload.name] = payload.data
+    if (payload === 'clean') {
+      state.form = {}
+    } else {
+      state.form[payload.name] = payload.data
+    }
   },
   SET_CURRENT_STEP_NUMBER: (state, payload) => {
-    state.currentStepNumber[payload.name] = payload.data
+    if (payload === 'clean') {
+      state.currentStepNumber = 1
+    } else {
+      state.currentStepNumber[payload.name] = payload.data
+    }
   },
   SET_REPORT: (state, payload) => {
     state.report = payload
@@ -19,6 +27,10 @@ export const mutations = {
 
 export const actions = {
   updateState(context, payload) {
+    if (payload === 'clean') {
+      context.commit('SET_FORM', 'clean')
+      context.commit('SET_CURRENT_STOP_NUMBER', 'clean')
+    }
     context.commit('SET_FORM', payload)
   },
   updateCurrentStepNumber(context, payload) {

@@ -43,19 +43,22 @@ export default {
           id: 2,
           value: 'amazonprime',
           label: 'Amazon Prime',
-          modalTitle: 'Amazon Prime'
+          modalTitle: 'Amazon Prime',
+          image: 'amazon'
         },
         {
           id: 3,
           value: 'streaming',
           label: 'Streaming',
-          modalTitle: 'Streaming'
+          modalTitle: 'Streaming',
+          image: 'streaming'
         },
         {
           id: 4,
           value: 'download',
           label: 'Téléchargement',
-          modalTitle: 'Téléchargement'
+          modalTitle: 'Téléchargement',
+          image: 'telechargement'
         }
       ]
     }
