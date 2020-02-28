@@ -70,25 +70,25 @@ export default class TranslateData {
     let ratioExemple = Math.round(
       this.gTotalByYear / 1000 / choosenExemple.value
     )
-    return 'correspond à ' + ratioExemple + ' ' + choosenExemple.label
+    return ratioExemple + ' ' + choosenExemple.label
   }
 
   randomSentenceAvion = () => {
     let nbTrajet = Math.round(this.gTotalByYear / IMPACT_EX_AVION)
-    return 'correspond à ' + nbTrajet + ' trajet Paris / Tokyo'
+    return nbTrajet + ' trajet Paris / Tokyo'
   }
 
   randomSentenceArbre = () => {
     let nbJour = Math.round(this.gTotalByYear / IMPACT_EX_ARBRE)
     let nbAnnee = Math.round(nbJour / 365)
     return (
-      'mettra ' + nbJour + ' jours à absorber le CO2 (soit ' + nbAnnee + ' ans)'
+      nbJour + ' jours pour un arbre à absorber le CO2'
     )
   }
 
   randomSentenceVoiture = () => {
     let nbKm = Math.round(this.gTotalByYear / IMPACT_EX_VOITURE)
-    return 'correspond à ' + nbKm + ' km en voiture'
+    return nbKm + ' km en voiture'
   }
 
   sortedConso = () => {
