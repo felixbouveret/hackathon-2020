@@ -31,13 +31,13 @@
         <div class="solu">
           <h3>4.</h3>
           <p class="solu-desc">
-            Suivre tes progrès par rapport à tes réponses d’aujourd’hui
+            Suivre tes progrès par rapport à tes réponses d’aujourd’hui
           </p>
         </div>
       </div>
       <div class="extension">
         <div class="desc">
-          <h3>L’extension qui te fait gagner du temps</h3>
+          <h3>Reprenez le contrôle de votre temps</h3>
           <p></p>
         </div>
         <div class="view">

@@ -5,9 +5,10 @@
 
       <div class="flex-cards-exemple">
         <div v-for="(repr, index) in datas" :key="index" class="flex-cards">
-          <div class="view">
-            <img :src="repr.image" alt="Illustrations" />
-          </div>
+          <div
+            class="view"
+            :style="{ backgroundImage: `url('${repr.image}')` }"
+          ></div>
           <p>
             {{ repr.data }}
           </p>
@@ -24,7 +25,8 @@ export default {
       type: Array,
       default: []
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
@@ -50,6 +52,8 @@ export default {
       width: 100%;
       height: 100%;
       max-height: 200px;
+      background-repeat: no-repeat;
+      background-position: center;
 
       img {
         width: 100%;
@@ -65,6 +69,7 @@ export default {
       font-weight: 500;
       font-size: 16px;
       line-height: 136%;
+      font-weight: 600;
     }
   }
 }
