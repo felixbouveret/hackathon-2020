@@ -52,6 +52,10 @@ h1, h2 {
 }
 .skin-section {
   background-color: $skin;
+
+  button.skip-button {
+    color: rgba($color: #000000, $alpha: .5);
+  }
 }
 .purple-section {
   background-color: $purple;

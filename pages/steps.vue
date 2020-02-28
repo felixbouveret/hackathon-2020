@@ -11,14 +11,22 @@
         @skip="goToNextStep"
       />
     </transition>
-    <fm-button
-      :text="stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'"
-      @submitStep="goToNextStep"
-    />
+    <div class="step-navigation">
+      <skip-button
+        class="skip"
+        v-if="!stepsManager.getStep().cantSkip"
+        @skip="skipStep"
+      />
+      <fm-button
+        :text="stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'"
+        @submitStep="goToNextStep"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import SkipButton from '~/components/form/fm-button-skip'
 import stepsScript from '~/services/steps'
 import fmButton from '~/components/form/fm-button'
 import progressBar from '~/components/progressBar'
@@ -27,7 +35,8 @@ import { mapActions } from 'vuex'
 export default {
   components: {
     fmButton,
-    progressBar
+    progressBar,
+    SkipButton
   },
   data() {
     return {
@@ -54,6 +63,9 @@ export default {
     }),
     updateCurrentValue(value) {
       this.currentValue = value
+    },
+    skipStep() {
+      this.stepsManager.goToNextStep()
     },
     goToNextStep(payload) {
       if (this.stepsManager.getStep().externalLink) {
@@ -104,5 +116,13 @@ export default {
 }
 .step {
   width: 100%;
+}
+
+.step-navigation {
+  display: flex;
+  justify-content: center;
+  .skip {
+    margin-right: 16px;
+  }
 }
 </style>

@@ -68,12 +68,12 @@ p {
     bottom: 0;
     &.left {
       left: 0;
-      width: 270px;
+      width: 230px;
     }
     &.right {
       right: 0;
       bottom: 32px;
-      width: 240px;
+      width: 200px;
     }
   }
   a {
