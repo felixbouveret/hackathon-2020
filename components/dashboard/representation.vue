@@ -6,10 +6,10 @@
       <div class="flex-cards-exemple">
         <div v-for="(data, index) in datas" :key="index" class="flex-cards">
           <div class="view">
-            <img src="" alt="">
+            <img src="" alt="" />
           </div>
           <p>
-            {{data}}
+            {{ data }}
           </p>
         </div>
       </div>
@@ -69,10 +69,10 @@ export default {
   }
 }
 h2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.3);
+  color: $purple-light;
   text-align: center;
   letter-spacing: 5px;
   margin-bottom: 2em;

@@ -68,7 +68,7 @@ h1 {
 .annonce {
   margin: auto;
   font-size: 17px;
-  color: $h2-text;
+  color: $purple-light;
   text-align: center;
   margin: 1em 1em 5em 1em;
   font-weight: normal;
