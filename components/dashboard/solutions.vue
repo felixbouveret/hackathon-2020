@@ -1,20 +1,25 @@
 <template>
   <section class="solutions">
     <div class="inner">
-      <h2>La solution de Timelow</h2>
-      <p>Timelow c’est une extension disponible sur ton navigateur préféré. Avec moi tu pourras :</p>
+      <h2>La solution de Leko</h2>
+      <p>
+        Leko c’est une extension disponible sur ton navigateur préféré. Avec moi
+        tu pourras :
+      </p>
 
       <div class="solution-list">
         <div class="solu">
           <h3>1.</h3>
           <p class="solu-desc">
-            Décider du temps qui te paraît raisonnable de passer sur chaque applications
+            Décider du temps qui te paraît raisonnable de passer sur chaque
+            applications
           </p>
         </div>
         <div class="solu">
           <h3>2.</h3>
           <p class="solu-desc">
-            Définir une plage horaire sur laquelle tu ne pourras pas utiliser certains sites
+            Définir une plage horaire sur laquelle tu ne pourras pas utiliser
+            certains sites
           </p>
         </div>
         <div class="solu">
@@ -36,7 +41,7 @@
           <p></p>
         </div>
         <div class="view">
-          <img src="~/assets/images/dashboard/extension.png">
+          <img src="~/assets/images/dashboard/extension.png" />
         </div>
       </div>
     </div>
@@ -45,7 +50,7 @@
 
 <script>
 export default {
-  name: 'Accords',
+  name: 'Accords'
 }
 </script>
 
@@ -86,7 +91,7 @@ h2 {
       font-family: 'Recoleta', sans-serif;
       font-size: 38px;
       z-index: 1;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
 
       &::before {
         content: '';
