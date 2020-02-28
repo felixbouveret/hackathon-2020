@@ -1,19 +1,16 @@
 <template>
   <div class="step social-media">
     <h1>Concernant les mails, tu es plutôt du genre...</h1>
-    <SkipButton name="mail" @skip="skipStep" />
     <radio :options="options" @emitValue="emitValue" />
   </div>
 </template>
 
 <script>
 import Radio from '../form/fm-radio'
-import SkipButton from '../form/fm-button-skip'
 export default {
   name: 'mail',
   components: {
     Radio,
-    SkipButton
   },
   props: {
     firstPartData: {
@@ -42,9 +39,7 @@ export default {
     emitValue(value) {
       this.$emit('emitValue', { name: 'mail', data: value })
     },
-    skipStep(value) {
-      this.$emit('skip', value)
-    }
+
   }
 }
 </script>

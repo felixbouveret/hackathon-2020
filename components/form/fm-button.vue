@@ -23,7 +23,6 @@ export default {
   .fm-button {
     display: block;
     padding: 16px 24px;
-    margin: 0 auto;
     border-radius: 8px;
     border: 0;
     font-size: 24px;

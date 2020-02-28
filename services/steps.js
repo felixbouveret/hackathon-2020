@@ -12,6 +12,7 @@ const steps = {
     component: device,
     currentStep: 1,
     color: 'orange',
+    cantSkip: true,
     nextStep: data => {
       if (data.data === 'yes') {
         return 'music'
@@ -73,6 +74,7 @@ const steps = {
     component: games,
     color: 'purple',
     currentStep: 7,
+    cantSkip: true,
     externalLink: true,
     nextStep: data => {
       $nuxt._router.push('/report')
