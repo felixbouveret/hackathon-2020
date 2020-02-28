@@ -3,7 +3,7 @@
     class="skip-button"
       @click="$emit('skip', { name: name, data: { skiped: true } })"
     >
-      Skip
+      Passer
     </button>
 </template>
 
@@ -21,9 +21,20 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .skip-button {
-
-
+  position: fixed;
+  top: 100px;
+  right: 2.5%;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-family: 'Work Sans';
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  color: $skip-button;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 </style>
