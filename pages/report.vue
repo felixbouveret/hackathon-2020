@@ -6,6 +6,7 @@
     />
     <consos :consos="report.consos" />
     <solutions />
+    <pied-de-page />
   </div>
   <div v-else>Chargement...</div>
 </template>
@@ -16,6 +17,7 @@ import accords from '~/components/dashboard/accords'
 import representation from '~/components/dashboard/representation'
 import consos from '~/components/dashboard/consos'
 import solutions from '~/components/dashboard/solutions'
+import PiedDePage from '~/components/dashboard/footer'
 
 export default {
   name: 'report',
@@ -23,7 +25,8 @@ export default {
     accords,
     representation,
     consos,
-    solutions
+    solutions,
+    PiedDePage
   },
   data() {
     return {
