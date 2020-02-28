@@ -100,7 +100,10 @@ export default class TranslateData {
           arraySort.push({
             name: key,
             octet: CONSO_MOY[key.toUpperCase()],
-            time: 1
+            time: 1,
+            percent: Math.round(
+              (CONSO_MOY[key.toUpperCase()] * 100) / this.total
+            )
           })
         }
 
@@ -111,7 +114,13 @@ export default class TranslateData {
             name: secondKey,
             octet:
               CONSO_MOY[secondKey.toUpperCase()] * this.data[key][secondKey],
-            time: this.data[key][secondKey]
+            time: this.data[key][secondKey],
+            percent: Math.round(
+              (this.data[key][secondKey] *
+                CONSO_MOY[secondKey.toUpperCase()] *
+                100) /
+                this.total
+            )
           })
         }
       }

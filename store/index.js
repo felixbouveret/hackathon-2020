@@ -39,6 +39,7 @@ export const actions = {
     }
 
     const generator = TranslateData.do(form)
+    console.log(generator)
     const report = {
       paris: generator.percentParis(),
       train: generator.randomSentenceTrain(),
