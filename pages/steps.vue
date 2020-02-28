@@ -18,7 +18,9 @@
         @skip="skipStep"
       />
       <fm-button
-        :text="stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'"
+        :text="
+          stepsManager.currentStep === 'noDevice' ? 'Quitter' : 'Continuer'
+        "
         @submitStep="goToNextStep"
       />
     </div>
@@ -92,6 +94,9 @@ export default {
         this.firstPartData = this.currentValue
       }
     }
+  },
+  created() {
+    this.updateState('clean')
   }
 }
 </script>
@@ -106,7 +111,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   padding: 48px 0;
-  transition: background-color .6s;
+  transition: background-color 0.6s;
 
   .bar {
     position: absolute;
