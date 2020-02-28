@@ -8,13 +8,12 @@
         v-model="returnedValue"
       />
       <label :for="option.id">
-        <div class="view">
-          <img
-            v-if="option.image"
-            :src="getImagePath(option.image)"
-            alt="Illustration"
-          />
-        </div>
+        <div
+          class="view"
+          :style="{
+            backgroundImage: `url('${getImagePath(option.image)}')`
+          }"
+        ></div>
         <span>{{ option.label }}</span>
       </label>
     </div>
@@ -46,6 +45,10 @@ export default {
   },
   methods: {
     getImagePath(imageName) {
+      console.log(imageName)
+      if (!imageName) {
+        return false
+      }
       const img = require(`~/assets/images/illus/${imageName}.svg`)
       return img
     }
@@ -89,12 +92,9 @@ label {
     max-height: 40%;
     width: 100%;
     margin: auto;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   span {
@@ -121,27 +121,27 @@ input {
   }
 }
 .isModal {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 32px;
-    max-width: 872px;
-    justify-content: initial;
-    align-items: initial;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+  max-width: 872px;
+  justify-content: initial;
+  align-items: initial;
+  height: auto;
+
+  .radio {
+    max-width: none;
+    max-height: none;
     height: auto;
+    margin: 0;
+  }
 
-    .radio {
-      max-width: none;
-      max-height: none;
-      height: auto;
-      margin: 0;
-    }
-
-    label {
-      padding: 52px 0;
-      span {
-        min-height: 0;
-        padding: 0;
-      }
+  label {
+    padding: 52px 0;
+    span {
+      min-height: 0;
+      padding: 0;
     }
   }
+}
 </style>

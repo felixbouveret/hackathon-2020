@@ -11,13 +11,10 @@
         v-model="returnedValue"
       />
       <label :for="option.id">
-        <div class="view">
-          <img
-            v-if="option.image"
-            :src="getImagePath(option.image)"
-            alt="Illustration"
-          />
-        </div>
+        <div
+          class="view"
+          :style="{ backgroundImage: `url('${getImagePath(option.image)}')` }"
+        ></div>
         <span>{{ option.label }}</span>
       </label>
     </div>
@@ -55,6 +52,10 @@ export default {
   },
   methods: {
     getImagePath(imageName) {
+      console.log(imageName)
+      if (!imageName) {
+        return false
+      }
       const img = require(`~/assets/images/illus/${imageName}.svg`)
       return img
     }
@@ -95,12 +96,9 @@ label {
     max-height: 40%;
     width: 40%;
     margin: auto;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   span {
