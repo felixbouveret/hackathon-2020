@@ -33,6 +33,11 @@ export const actions = {
         form[key] = false
       }
     })
+
+    if (!form.jeuxVideo) {
+      form.jeuxVideo = false
+    }
+
     const generator = TranslateData.do(form)
     const report = {
       paris: generator.percentParis(),

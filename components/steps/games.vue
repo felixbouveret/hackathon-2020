@@ -2,14 +2,6 @@
   <div class="step social-media">
     <h1>Les jeux vidéos en ligne et toi ?</h1>
     <radio :options="options" @emitValue="emitValue" />
-    <transition name="scale" mode="in-out">
-      <timeRangeModal
-        v-if="firstPartData && firstPartData[0] !== false"
-        @emitFinalValue="emitFinalValue"
-        :names="firstPartData"
-        :options="options"
-      />
-    </transition>
   </div>
 </template>
 
@@ -35,31 +27,20 @@ export default {
       options: [
         {
           id: 1,
-          value: 'games',
-          label: "J'adore ça !",
-          modalTitle: 'Jeux videos en ligne'
+          value: 'oui',
+          label: "J'adore ça !"
         },
         {
           id: 2,
-          value: false,
+          value: 'non',
           label: 'Ça fait deux !'
         }
       ]
     }
   },
   methods: {
-    emitValue(value) {
-      if (!value) {
-        this.emitFinalValue(value)
-        return
-      }
-      this.$emit('emitValue', [value])
-    },
-    emitFinalValue(value) {
-      this.$emit('emitFinalValue', {
-        name: 'jeuxVideo',
-        data: value
-      })
+    emitValue(data) {
+      this.$emit('emitValue', { name: 'jeuxVideo', data: data })
     }
   }
 }
