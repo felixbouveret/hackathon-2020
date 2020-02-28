@@ -40,4 +40,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.report-container {
+  background-color: $skin;
+  padding: 50px 0 100px 0;
+}
+</style>
