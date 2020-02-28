@@ -1,9 +1,18 @@
 <template>
-  <div class="no-device">
-    <h1 class="content">Bonjour 👋</h1>
-    <p class="content">Je me présente, je suis Timlow ! <br> Es-tu prêt à répondre à quelques questions à propos de tes habitudes quotidiennes sur le web ?</p>
-    <p class="content">Ça ne te prendra pas plus d'une minute et ça te fera gagner un temps fou par la suite 💪</p>
-    <nuxt-link to="/steps"> Go </nuxt-link>
+  <div class="home">
+    <div class="inner">
+      <h1>Bonjour 👋</h1>
+      <p>Je me présente, je suis Timelow !</p>
+      <p>Es -tu prêt à répondre à quelques questions à propos de tes habitudes quotidiennes sur le web ? Ca ne te
+        prendra pas plus d'une minute et ça te fera gagner un temps fou pour la suite 💪</p>
+      <nuxt-link to="/steps"> Allons-y ! </nuxt-link>
+      <div class="info">
+        <p>Je ne suis pas la pour te juger ni collecter tes données. Elles ne seront conservées que si tu le décides <img class="emoji_apple" src="img/smiley.png" alt="">
+        </p>
+      </div>
+    </div>
+    <img src="~/assets/images/home-left.svg" class="illustration left">
+    <img src="~/assets/images/home-right.svg" class="illustration right">
   </div>
 </template>
 
@@ -14,10 +23,66 @@ export default {
   components: {
     fmButton
   },
-  created() {
-    console.log(this.$store.state);
-  }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+p {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 77px;
+}
+.home {
+  position: relative;
+  background-color: $skin;
+  height: 100vh;
+  min-width: 700px;
+
+  .inner {
+    height: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 112px 0;
+    text-align: center;
+
+    .info {
+      max-width: 660px;
+      margin: 0 auto;
+      p {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 42px;
+      }
+    }
+  }
+  .illustration {
+    position: absolute;
+    bottom: 0;
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+      bottom: 32px;
+    }
+  }
+  a {
+    display: block;
+    padding: 32px 94px;
+    background-color: $orange;
+    border-radius: 8px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #000000;
+    text-decoration: none;
+  }
+}
+</style>
