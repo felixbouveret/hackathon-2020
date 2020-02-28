@@ -5,6 +5,7 @@
       :datas="[report.arbre, report.avion, report.voiture, report.train]"
     />
     <consos :consos="report.consos" />
+    <solutions />
   </div>
   <div v-else>Chargement...</div>
 </template>
@@ -14,13 +15,15 @@ import { mapActions } from 'vuex'
 import accords from '~/components/dashboard/accords'
 import representation from '~/components/dashboard/representation'
 import consos from '~/components/dashboard/consos'
+import solutions from '~/components/dashboard/solutions'
 
 export default {
   name: 'report',
   components: {
     accords,
     representation,
-    consos
+    consos,
+    solutions
   },
   data() {
     return {
