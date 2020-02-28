@@ -127,8 +127,6 @@ export default {
 .step-navigation {
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 9;
   .skip {
     margin-right: 16px;
   }
