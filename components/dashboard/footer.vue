@@ -4,8 +4,8 @@
       <div class="thanks-part">
         <h2>Merci!</h2>
         <p class="paris-accord-desc">
-          Timlow t’a convaincu ? Saisis ton adresse mail pour retrouver ces
-          infos et voir ta progression quand tu installeras l’extension 🙂
+          Leko t’a convaincu ? Saisis ton adresse mail pour retrouver ces infos
+          et voir ta progression quand tu installeras l’extension 🙂
         </p>
       </div>
 
