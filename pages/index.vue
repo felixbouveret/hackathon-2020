@@ -11,8 +11,8 @@
         </p>
       </div>
     </div>
-    <img src="~/assets/images/illu_gauche.png" alt="" srcset="" class="illustration left">
-    <img src="~/assets/images/illu_droite.png" alt="" srcset="" class="illustration right">
+    <img src="~/assets/images/home-left.svg" class="illustration left">
+    <img src="~/assets/images/home-right.svg" class="illustration right">
   </div>
 </template>
 
@@ -54,7 +54,7 @@ p {
     text-align: center;
 
     .info {
-      max-width: 765px;
+      max-width: 660px;
       margin: 0 auto;
       p {
         font-size: 24px;
@@ -71,6 +71,7 @@ p {
     }
     &.right {
       right: 0;
+      bottom: 32px;
     }
   }
   a {
