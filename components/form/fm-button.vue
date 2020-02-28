@@ -25,6 +25,7 @@ export default {
     padding: 16px 24px;
     border-radius: 8px;
     border: 0;
+    line-height: 24px;
     font-size: 24px;
     background-color: $main-color;
     color: white;

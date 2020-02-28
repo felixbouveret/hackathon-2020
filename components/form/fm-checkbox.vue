@@ -11,11 +11,13 @@
         v-model="returnedValue"
       />
       <label :for="option.id">
-        <img
-          v-if="option.image"
-          :src="getImagePath(option.image)"
-          alt="Illustration"
-        />
+        <div class="view">
+          <img
+            v-if="option.image"
+            :src="getImagePath(option.image)"
+            alt="Illustration"
+          />
+        </div>
         <span>{{ option.label }}</span>
       </label>
     </div>
@@ -80,7 +82,7 @@ label {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 8px;
   border: 4px solid $skin;
   box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: 0.4);
@@ -88,23 +90,30 @@ label {
   transition: box-shadow 0.3s;
   position: relative;
 
+  .view {
+    flex-grow: 1;
+    max-height: 40%;
+    width: 40%;
+    margin: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
   span {
     align-self: flex-end;
     width: 100%;
     text-align: center;
-    // padding-bottom: 20px;
     text-transform: uppercase;
     font-size: 20px;
     line-height: 140%;
     color: black;
     font-weight: 600;
     letter-spacing: 2px;
-    position: absolute;
-    bottom: 20px;
-  }
-
-  img {
-    max-height: 50%;
+    padding-bottom: 20px;
   }
 }
 input {

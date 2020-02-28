@@ -8,11 +8,13 @@
         v-model="returnedValue"
       />
       <label :for="option.id">
-        <img
-          v-if="option.image"
-          :src="getImagePath(option.image)"
-          alt="Illustration"
-        />
+        <div class="view">
+          <img
+            v-if="option.image"
+            :src="getImagePath(option.image)"
+            alt="Illustration"
+          />
+        </div>
         <span>{{ option.label }}</span>
       </label>
     </div>
@@ -61,8 +63,64 @@ export default {
   max-width: $inner;
   width: 95%;
   margin: 0 auto;
+}
+.radio {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 350px;
+  margin: 0 16px;
+}
+label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  border: 4px solid $skin;
+  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: 0.4);
+  background-color: $skin;
+  transition: box-shadow 0.3s;
+  position: relative;
 
-  &.isModal {
+  .view {
+    flex-grow: 1;
+    max-height: 40%;
+    width: 100%;
+    margin: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  span {
+    color: black;
+    align-self: flex-end;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 140%;
+    font-weight: 600;
+    letter-spacing: 2px;
+    bottom: 20px;
+    min-height: 100px;
+  }
+}
+input {
+  display: none;
+  appearance: none;
+  &:checked + label {
+    border-color: black;
+    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: 0.4);
+  }
+}
+.isModal {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 32px;
@@ -80,50 +138,10 @@ export default {
 
     label {
       padding: 52px 0;
+      span {
+        min-height: 0;
+        padding: 0;
+      }
     }
   }
-}
-.radio {
-  width: 100%;
-  height: 100%;
-  max-width: 370px;
-  max-height: 500px;
-  margin: 0 16px;
-}
-label {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 8px;
-  border: 4px solid $skin;
-  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: 0.4);
-  background-color: $skin;
-  transition: box-shadow 0.3s;
-  position: relative;
-
-  span {
-    color: black;
-    align-self: flex-end;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 20px;
-    text-transform: uppercase;
-    font-size: 20px;
-    line-height: 140%;
-    font-weight: 600;
-    letter-spacing: 2px;
-    position: absolute;
-    bottom: 20px;
-  }
-}
-input {
-  display: none;
-  appearance: none;
-  &:checked + label {
-    border-color: black;
-    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: 0.4);
-  }
-}
 </style>
