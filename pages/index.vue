@@ -4,14 +4,14 @@
       <h1>Bonjour 👋</h1>
       <p>Je me présente, je suis Leko !</p>
       <p>
-        Es -tu prêt à répondre à quelques questions à propos de tes habitudes
-        quotidiennes sur le web ? Ca ne te prendra pas plus d'une minute et ça
+        Es-tu prêt à répondre à quelques questions à propos de tes habitudes
+        quotidiennes sur le web ? Ça ne te prendra pas plus d'une minute et ça
         te fera gagner un temps fou pour la suite 💪
       </p>
       <nuxt-link to="/steps"> Allons-y ! </nuxt-link>
       <div class="info">
         <p>
-          Je ne suis pas la pour te juger ni collecter tes données. Elles ne
+          Je ne suis pas là pour te juger ni collecter tes données. Elles ne
           seront conservées que si tu le décides
           <img class="emoji_apple" src="img/smiley.png" alt="" />
         </p>

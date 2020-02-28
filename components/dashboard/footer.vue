@@ -8,7 +8,6 @@
           et voir ta progression quand tu installeras l’extension 🙂
         </p>
       </div>
-
       <form class="form-extension">
         <input type="text" placeholder="Votre adresse E-mail" />
         <input type="button" value="Envoyer" />
