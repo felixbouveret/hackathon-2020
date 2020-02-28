@@ -8,6 +8,11 @@
         v-model="returnedValue"
       />
       <label :for="option.id">
+        <img
+          v-if="option.image"
+          :src="getImagePath(option.image)"
+          alt="Illustration"
+        />
         <span>{{ option.label }}</span>
       </label>
     </div>
@@ -35,6 +40,12 @@ export default {
   watch: {
     returnedValue() {
       this.$emit('emitValue', this.returnedValue)
+    }
+  },
+  methods: {
+    getImagePath(imageName) {
+      const img = require(`~/assets/images/illus/${imageName}.svg`)
+      return img
     }
   }
 }
@@ -66,6 +77,10 @@ export default {
       height: auto;
       margin: 0;
     }
+
+    label {
+      padding: 52px 0;
+    }
   }
 }
 .radio {
@@ -79,21 +94,28 @@ label {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 8px;
   border: 4px solid $skin;
-  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: .4);
+  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: 0.4);
   background-color: $skin;
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
+  position: relative;
 
   span {
     color: black;
     align-self: flex-end;
     width: 100%;
     text-align: center;
-    padding: 52px 32px;
+    padding-bottom: 20px;
     text-transform: uppercase;
     font-size: 20px;
     line-height: 140%;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 20px;
   }
 }
 input {
@@ -101,7 +123,7 @@ input {
   appearance: none;
   &:checked + label {
     border-color: black;
-    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: .4);
+    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: 0.4);
   }
 }
 </style>

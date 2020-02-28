@@ -21,7 +21,7 @@ export default {
   name: 'social-media',
   components: {
     timeRangeModal,
-    Checkbox,
+    Checkbox
   },
   props: {
     firstPartData: {
@@ -37,37 +37,43 @@ export default {
           id: 1,
           value: 'facebook',
           label: 'Facebook',
-          modalTitle: 'Facebook'
+          modalTitle: 'Facebook',
+          image: 'facebook'
         },
         {
           id: 2,
           value: 'instagram',
           label: 'Instagram',
-          modalTitle: 'Instagram'
+          modalTitle: 'Instagram',
+          image: 'instagram'
         },
         {
           id: 3,
           value: 'twitter',
           label: 'Twitter',
-          modalTitle: 'Twitter'
+          modalTitle: 'Twitter',
+          image: 'twitter'
         },
         {
           id: 4,
           value: 'linkedin',
           label: 'Linkedin',
-          modalTitle: 'Linkedin'
+          modalTitle: 'Linkedin',
+          image: 'linkedin'
         },
         {
           id: 5,
           value: 'twitch',
           label: 'Twitch',
-          modalTitle: 'Twitch'
+          modalTitle: 'Twitch',
+          image: 'twitch'
         },
         {
           id: 6,
           value: 'youtube',
           label: 'Youtube',
-          modalTitle: 'Youtube'
+          modalTitle: 'Youtube',
+          image: 'youtube'
         }
       ]
     }
@@ -81,7 +87,7 @@ export default {
         name: 'reseauSociaux',
         data: value
       })
-    },
+    }
   }
 }
 </script>

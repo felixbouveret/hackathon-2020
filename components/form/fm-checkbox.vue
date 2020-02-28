@@ -1,5 +1,8 @@
 <template>
-  <div class="checks-container" :style="'grid-template-columns: repeat('+ colums +', 1fr);'">
+  <div
+    class="checks-container"
+    :style="'grid-template-columns: repeat(' + colums + ', 1fr);'"
+  >
     <div class="check" v-for="(option, index) in options" :key="index">
       <input
         type="checkbox"
@@ -8,9 +11,12 @@
         v-model="returnedValue"
       />
       <label :for="option.id">
-        <span>
-          {{ option.label }}
-        </span>
+        <img
+          v-if="option.image"
+          :src="getImagePath(option.image)"
+          alt="Illustration"
+        />
+        <span>{{ option.label }}</span>
       </label>
     </div>
   </div>
@@ -32,17 +38,23 @@ export default {
   },
   computed: {
     colums() {
-      if(this.options.length == 4) {
+      if (this.options.length == 4) {
         return 2
-      } else if(this.options.length >= 3) {
+      } else if (this.options.length >= 3) {
         return 3
       }
-      return this.options.length;
+      return this.options.length
     }
   },
   watch: {
     returnedValue() {
       this.$emit('emitValue', this.returnedValue)
+    }
+  },
+  methods: {
+    getImagePath(imageName) {
+      const img = require(`~/assets/images/illus/${imageName}.svg`)
+      return img
     }
   }
 }
@@ -51,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 .checks-container {
   display: grid;
-  
+
   grid-gap: 32px;
   height: 100%;
   padding: 64px 0;
@@ -67,21 +79,32 @@ label {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 8px;
   border: 4px solid $skin;
-  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: .4);
+  box-shadow: 0 0 0 0 rgba($color: $skin, $alpha: 0.4);
   background-color: $skin-boxes;
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
+  position: relative;
 
   span {
     align-self: flex-end;
     width: 100%;
     text-align: center;
-    padding: 52px 32px;
+    // padding-bottom: 20px;
     text-transform: uppercase;
     font-size: 20px;
     line-height: 140%;
     color: black;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 20px;
+  }
+
+  img {
+    max-height: 50%;
   }
 }
 input {
@@ -89,7 +112,7 @@ input {
   appearance: none;
   &:checked + label {
     border-color: black;
-    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: .4);
+    box-shadow: 0 0 0 8px rgba($color: $skin, $alpha: 0.4);
   }
 }
 </style>

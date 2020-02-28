@@ -39,7 +39,7 @@ export default {
         {
           id: 10,
           value: 0.125,
-          label: '5 - 10'
+          label: '5 - 10 MIN'
         },
         {
           id: 20,

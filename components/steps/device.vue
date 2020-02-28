@@ -21,12 +21,14 @@ export default {
         {
           id: 'oui',
           label: 'Oui',
-          value: 'yes'
+          value: 'yes',
+          image: 'device'
         },
         {
           id: 'non',
           label: 'Non',
-          value: 'no'
+          value: 'no',
+          image: 'no-device'
         }
       ]
     }
