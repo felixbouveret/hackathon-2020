@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="inner">
-      <h2>Tes consommations les plus énergivores</h2>
+      <h2>Tes consommations</h2>
       <div class="energy-wrapper">
         <div class="flex-energy-app">
           <div class="energy-app" v-for="(conso, index) in consos" :key="index">
