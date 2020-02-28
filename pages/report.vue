@@ -1,9 +1,7 @@
 <template>
   <div class="report-container" v-if="report">
     <accords :accords="report.paris" />
-    <representation
-      :datas="[report.arbre, report.avion, report.voiture, report.train]"
-    />
+    <representation :datas="representation" />
     <consos :consos="report.consos" />
     <solutions />
     <pied-de-page />
@@ -106,6 +104,31 @@ export default {
     ...mapActions({
       generateReport: 'generateReport'
     })
+  },
+  computed: {
+    representation() {
+      if (!this.report) {
+        return false
+      } else {
+        const arbre = {
+          data: this.report.arbre,
+          image: require('~/assets/images/illus/arbre.svg')
+        }
+        const avion = {
+          data: this.report.avion,
+          image: require('~/assets/images/illus/avion.svg')
+        }
+        const voiture = {
+          data: this.report.voiture,
+          image: require('~/assets/images/illus/voiture.svg')
+        }
+        const train = {
+          data: this.report.train,
+          image: require('~/assets/images/illus/train.svg')
+        }
+        return [arbre, avion, voiture, train]
+      }
+    }
   },
   created() {
     this.generateReport().then(() => {

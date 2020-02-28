@@ -4,12 +4,12 @@
       <h2>Sur une année, cela représente...</h2>
 
       <div class="flex-cards-exemple">
-        <div v-for="(data, index) in datas" :key="index" class="flex-cards">
+        <div v-for="(repr, index) in datas" :key="index" class="flex-cards">
           <div class="view">
-            <img src="" alt="" />
+            <img :src="repr.image" alt="Illustrations" />
           </div>
           <p>
-            {{ data }}
+            {{ repr.data }}
           </p>
         </div>
       </div>
@@ -76,5 +76,9 @@ h2 {
   text-align: center;
   letter-spacing: 5px;
   margin-bottom: 2em;
+}
+
+img {
+  max-height: 50%;
 }
 </style>

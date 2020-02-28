@@ -50,7 +50,8 @@ export default {
           id: 3,
           value: 'streaming',
           label: 'Streaming',
-          modalTitle: 'Streaming'
+          modalTitle: 'Streaming',
+          image: 'streaming'
         },
         {
           id: 4,

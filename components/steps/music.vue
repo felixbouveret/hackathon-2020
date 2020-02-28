@@ -72,7 +72,8 @@ export default {
           id: 6,
           value: 'autre',
           label: 'Autre',
-          modalTitle: 'Autre'
+          modalTitle: 'Autre',
+          image: 'autre'
         }
       ]
     }
