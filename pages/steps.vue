@@ -92,7 +92,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 70px 0;
+  padding: 48px 0;
   transition: background-color .6s;
 
   .bar {
