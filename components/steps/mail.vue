@@ -10,7 +10,7 @@ import Radio from '../form/fm-radio'
 export default {
   name: 'mail',
   components: {
-    Radio,
+    Radio
   },
   props: {
     firstPartData: {
@@ -25,12 +25,14 @@ export default {
         {
           id: 1,
           value: 'yes',
-          label: 'Ma boîte mail est toujours pleine'
+          label: 'Ma boîte mail est toujours pleine',
+          image: 'full-mail'
         },
         {
           id: 2,
           value: 'no',
-          label: 'Ils ne me résistent pas, je le supprime tous !'
+          label: 'Ils ne me résistent pas, je le supprime tous !',
+          image: 'empty-mail'
         }
       ]
     }
@@ -38,8 +40,7 @@ export default {
   methods: {
     emitValue(value) {
       this.$emit('emitValue', { name: 'mail', data: value })
-    },
-
+    }
   }
 }
 </script>

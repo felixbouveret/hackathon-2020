@@ -20,7 +20,7 @@ export default {
   name: 'movies',
   components: {
     timeRangeModal,
-    Checkbox,
+    Checkbox
   },
   props: {
     firstPartData: {
@@ -36,7 +36,8 @@ export default {
           id: 1,
           value: 'netflix',
           label: 'Netflix',
-          modalTitle: 'Netflix'
+          modalTitle: 'Netflix',
+          image: 'netflix'
         },
         {
           id: 2,
@@ -68,7 +69,7 @@ export default {
         name: 'films',
         data: value
       })
-    },
+    }
   }
 }
 </script>

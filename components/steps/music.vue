@@ -21,7 +21,7 @@ export default {
   name: 'music',
   components: {
     timeRangeModal,
-    Checkbox,
+    Checkbox
   },
   props: {
     firstPartData: {
@@ -37,31 +37,36 @@ export default {
           id: 1,
           value: 'spotify',
           label: 'Spotify',
-          modalTitle: 'Spotify'
+          modalTitle: 'Spotify',
+          image: 'spotify'
         },
         {
           id: 2,
           value: 'deezer',
           label: 'Deezer',
-          modalTitle: 'Deezer'
+          modalTitle: 'Deezer',
+          image: 'deezer'
         },
         {
           id: 3,
           value: 'youtube',
           label: 'Youtube',
-          modalTitle: 'Youtube'
+          modalTitle: 'Youtube',
+          image: 'youtube'
         },
         {
           id: 4,
           value: 'soundcloud',
           label: 'Soundcloud',
-          modalTitle: 'Soundcloud'
+          modalTitle: 'Soundcloud',
+          image: 'soundcloud'
         },
         {
           id: 5,
           value: 'appleMusic',
           label: 'Apple Music',
-          modalTitle: 'Apple Music'
+          modalTitle: 'Apple Music',
+          image: 'apple-music'
         },
         {
           id: 6,
@@ -81,7 +86,7 @@ export default {
         name: 'music',
         data: value
       })
-    },
+    }
   }
 }
 </script>
